@@ -128,6 +128,71 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/10/04/在-Mac-上安装-Git-，生成-SSH-密钥用于-GitHub-授权/" target="_self">
+          <img src="https://img-blog.csdnimg.cn/20190920090245710.png" srcset="/img/loading.gif" alt="在 Mac 上安装 Git ，生成 SSH 密钥用于 GitHub 授权" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/04/在-Mac-上安装-Git-，生成-SSH-密钥用于-GitHub-授权/">
+        <p class="h4 index-header">在 Mac 上安装 Git ，生成 SSH 密钥用于 GitHub 授权</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+在本教程中，将介绍如何在 Mac 上安装 Git，如何生成SSH密钥，以及如何将您的公共 SSH 密钥上传到 GitHub 帐户进行授权。
+
+
+如何在你的 Mac 上安装 Git ？打开‘终端’输入如下命令：
+$ brew install git
+
+ 具体方法查看其官方文档 ：https://brew.sh/
+
+这将在您的系统上安装 Git。若要确认是否安装成功，请输入：
+$ git --version
+这样你就能看到目前的 Git 版本。
+如何为 GitHub 授权生成 SSH 密钥打开你的终端输入  cd ~/  来到你的根目录下输入以下指令：ssh-keygen -t rsa
+
+这时系统将提示您输入一个文件名来存储密钥 
+只需按 ‘回车’ 接受默认文件 (/Users/you/.ssh/id_rsa) 即可
+然后它会要求您创建一个密码。你可以进行设定，但我一般选择直接回车（这样密码就为空，不用专门去记）
+
+当你再次按下‘回车’时，以下两个文件就会被建立了~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+最后一步：我们需要的 SSH 公钥存储在以.pub结尾的文件中</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Git">Git</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mac">Mac</a>&nbsp;
+          
+            <a href="/tags/SSH">SSH</a>&nbsp;
+          
+            <a href="/tags/GitHub">GitHub</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2019/10/03/101837623/" target="_self">
           <img src="/img/default.png" srcset="/img/loading.gif" alt="每个人都要学的图片压缩终极奥义，有效解决 Android 程序 OOM" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>

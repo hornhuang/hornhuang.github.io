@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="由来  在我们编写 Android 程序的时候，几乎永远逃避不了图片压缩的难题。除了应用图标之外，我们所要显示的图片基本上只有两个来源：  来自网络下载 本地相册中加载   不管是网上下载下来的也好，还是从系统图片库中读取的图片，都有一个相同的特点：像素一帮较高。同时我们都知道，Android 系统分配给我们每个应用的内存是有限的，由于解析、加载一张图片，需要占用的内存大小，是远大于图片自身大小的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My New Post">
+<meta property="og:url" content="http://yoursite.com/2019/10/03/101837623/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="由来  在我们编写 Android 程序的时候，几乎永远逃避不了图片压缩的难题。除了应用图标之外，我们所要显示的图片基本上只有两个来源：  来自网络下载 本地相册中加载   不管是网上下载下来的也好，还是从系统图片库中读取的图片，都有一个相同的特点：像素一帮较高。同时我们都知道，Android 系统分配给我们每个应用的内存是有限的，由于解析、加载一张图片，需要占用的内存大小，是远大于图片自身大小的">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019100116455266.png">
+<meta property="og:updated_time" content="2019-10-03T12:42:10.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My New Post">
+<meta name="twitter:description" content="由来  在我们编写 Android 程序的时候，几乎永远逃避不了图片压缩的难题。除了应用图标之外，我们所要显示的图片基本上只有两个来源：  来自网络下载 本地相册中加载   不管是网上下载下来的也好，还是从系统图片库中读取的图片，都有一个相同的特点：像素一帮较高。同时我们都知道，Android 系统分配给我们每个应用的内存是有限的，由于解析、加载一张图片，需要占用的内存大小，是远大于图片自身大小的">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019100116455266.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/03/101837623/">
+
+
+
+
+
+  <title>My New Post | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-首页"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-关于我"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-标签"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-归档"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/101837623/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">My New Post</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-03T20:40:32+08:00">
+                2019-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h1><hr>
+<blockquote>
+<p>在我们编写 <code>Android</code> 程序的时候，几乎永远逃避不了图片压缩的难题。除了应用图标之外，我们所要显示的图片基本上只有两个来源：</p>
+<ul>
+<li>来自网络下载</li>
+<li>本地相册中加载</li>
+</ul>
+</blockquote>
+<p>不管是网上下载下来的也好，还是从系统图片库中读取的图片，都有一个相同的特点：像素一帮较高。同时我们都知道，<code>Android</code> 系统分配给我们每个应用的内存是有限的，由于解析、加载一张图片，需要占用的内存大小，是远大于图片自身大小的。所以，这时程序就可能因为占用了过多的内存，从而出现<code>OOM</code> 现象。那么什么是 <code>OOM</code> 呢？</p>
+<p><code>OOM</code> 即 <code>OutOfMemory</code> 异常，也就是我们所说的 内存溢出 ，其一般表现为应用闪退等现象。那么我们该如何下手去解决呢？</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><hr>
+<p>首先我们发现，我们所加载的这些图片的分辨率，要比我们手机屏幕高得多，更有甚者，我们在一个拇指大的控件上，去加载一个 4k 大图是完全没有必要的，也就是说，如果我们能让每个控件上都去显示相应大小的图片，那么这个问题也就迎刃而解了</p>
+<p>那么，要怎样才能达到图片与控件的对号入座？这时我们就引进了图片压缩的方案：</p>
+<ul>
+<li>首先，获得原图片大小</li>
+<li>其次，获取控件大小</li>
+<li>接着，获取我们图片和控件的比例</li>
+<li>最后，根据这一比例，将图片压缩为适合显示的大小</li>
+</ul>
+<p>那么就让我们开始吧：</p>
+<h1 id="获取原图大小"><a href="#获取原图大小" class="headerlink" title="获取原图大小"></a>获取原图大小</h1><hr>
+<p>我们都知道，<code>Android 向我们提供了 BitmapFactory</code> 这个类，在这个类中有着诸如：<code>decodeResource()</code>  <code>decodeFile()</code>   <code>decodeStream()</code> 等。其中：</p>
+<ul>
+<li>decodeResource()  ：    用于解析资源文件，即 res 文件夹下的图片</li>
+<li>decodeFile() ：               用于解析系统相册中的图片  </li>
+<li>decodeStream() ：        用于解析输入输出流中图片通常，是采用 HttpClient 从下载的图片</li>
+</ul>
+<p>其他的方法这里就不多说了，因为在源码中我们可有i看到，几乎所有的方法，最后都会将图片解析为流的形式，最后调用 <code>decodeStream()</code> 方法，实例化出我们的 <code>Bitmap</code> 对象。</p>
+<p>虽然这些方法对我们是再熟悉不过的了，但对于某些初学者而言，却经常忽略了一个重要的内部类 ：<code>BitmapFactory.Options</code> ，然而他确实我们图片压缩必不可少的，为什么需要这个参数呢？<code>Options</code> 的对象用于确定需要生成的 Bitmap 即目标图片的参数。<br>他的用法很简单，我们先 new 一个 <code>BitmapFactory.Options</code> 对象。再去调用含有 <code>Options</code> 参数的方法，如</p>
+<ul>
+<li><code>public static Bitmap decodeResource(Resources res, int id, Options opts)</code></li>
+<li><code>public static Bitmap decodeResourceStream(@Nullable Resources res,@Nullable TypedValue value,@Nullable InputStream is, @Nullable Rect pad, @Nullable Options opts)</code></li>
+</ul>
+<p>调用完之后我们发现，除了方法放回给我们一个实例化出来的 <code>Bitmap</code> 图片之外，这个 <code>Options</code> 对象中长度、宽度、类型等等属性，也都被设置成了了我们图片的相应属性。所以，我们很容易想到：通过将 <code>Options</code> 对象传入，来获得图片的原始尺寸，为后期的压缩做准备，说干就干，我们将 <code>Options</code> 对象，和 <code>Resources</code>中一张 4k 图片的<code>id</code> 一块传入上诉方法中，来尝试获得它的尺寸，结果我们发现：程序 <code>OOM</code> 崩溃了！</p>
+<p>为什么会发生这种情况？首先我们想想我们为什么要获得这个<code>Options</code> 对象？时为了获得图片的尺寸大小；那我们为什么要获得原图尺寸大小？是为了按照原图尺寸和控件尺寸的比例，将其压缩为适合显示的大小？那我们又为什么要去压缩它为合适的大小呢？是因为如果按照原大小去调用相应的 <code>decode...()</code>方法解析图片，会导致内存占有率过高触发<code>OOM</code> 异常，进而导致程序崩溃啊！没想到的是：结果我们为了获得 <code>Options</code> 而调用了相应的 <code>decode...()</code> 方法，的确 <code>Options</code> 是复制了，但由于该方法适用于生成图片，也就是 <code>Bitmap</code> 对象的。所以程序也在解析这张超大图的过程中<code>OOM</code> 崩溃了</p>
+<p>那么难道就没方法了吗？</p>
+<p>有的，我之前说过：<code>Option</code> 内部有着众多参数，其中有一个叫做：  <code>inJustDecodeBounds</code> 。这个参数默认值为<code>false</code> 。但如果我们先把这个参数设置为 true  时，该方法便不在会去生成相应的 <code>Bitmap</code> ，而仅仅是去测量图片的各种属性，如长度、宽度、类型等等，然后放回一个 <code>null</code> 。所以，我们很容易想到：可以先通过将 <code>inJustDecodeBounds</code> 的值设为 <code>true</code> ，再去调用相应的相应的 <code>decode...()</code>方法，最后再将<code>inJustDecodeBounds</code> 的值改回 <code>false</code> 。这种做法有两个好处：</p>
+<ol>
+<li>既能获得图片大小，由于后续操作</li>
+<li>又成功避免了去解析图片，导致程序 <code>OOM</code> 而崩溃。</li>
+</ol>
+<p>但这恰恰是被很多人所忽略的一点。</p>
+<h4 id="好了，现在给出具体的实现："><a href="#好了，现在给出具体的实现：" class="headerlink" title="好了，现在给出具体的实现："></a>好了，现在给出具体的实现：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">calculateOptionsById</span><span class="params">(@NonNull Resources res,@NonNull BitmapFactory.Options options, <span class="keyword">int</span> imgId)</span> </span>&#123;</span><br><span class="line">    BitmapFactory.decodeResource(res, imgId, options);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>大家可能发现，这里只将 <code>inJustDecodeBounds</code> 设为<code>true</code>却没有改回<code>false</code> ，这是因为获得 <code>Options</code> 只是图片压缩的第一步，我们在后续方法中将会进行修改</p>
+</blockquote>
+<h1 id="如何进行压缩"><a href="#如何进行压缩" class="headerlink" title="如何进行压缩"></a>如何进行压缩</h1><hr>
+<p>我们继续看 <code>Options</code> 的构成。我们发现，其中有个名为 <code>inSampleSize</code> 的数据成员，他就是关键所在，那么他有着什么意义呢？</p>
+<p>这里我给大家举个例子，比如我这有张 4000*1000 像素的图片：</p>
+<ul>
+<li>当我们把 <code>inSampleSize</code>  的值设为 <code>4</code>时，最后生成出来的图片大小将会是：1000 x 250 像素 </li>
+<li>当我们把<code>inSampleSize</code> 的值设为<code>5</code>时，最后生成出来的图片大小将会是：800 x 200 像素。这是个什么概念？</li>
+</ul>
+<p>这不仅仅是长宽都变为原来四分之一或者五分之一这么简单，而是其图片大小，直接变为原图的 <code>1/(n^2)</code>！也就是说：</p>
+<ul>
+<li>如果原图 <code>2MB</code>，那么当 <code>inSampleSize</code>  赋值为<code>4</code>加载时就只需要 <code>0.125MB</code></li>
+<li>那 如果 <code>inSampleSize</code>  赋值为 <code>5</code> 呢？只需要 <code>0.08 MB</code>！连<code>100k</code> 都不到的小图啊！</li>
+</ul>
+<h4 id="那么下面我就给出这个方法的具体实现："><a href="#那么下面我就给出这个方法的具体实现：" class="headerlink" title="那么下面我就给出这个方法的具体实现："></a>那么下面我就给出这个方法的具体实现：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateInSamplesizeByOptions</span><span class="params">(@NonNull BitmapFactory.Options options, <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> inSamplesize   = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> originalWidth  = options.outWidth;</span><br><span class="line">    <span class="keyword">int</span> originalHeight = options.outHeight;</span><br><span class="line">    <span class="keyword">if</span> (originalHeight &gt; reqHeight || originalWidth &gt; reqWidth) &#123;</span><br><span class="line">        <span class="keyword">int</span> heightRatio = originalHeight / reqHeight;</span><br><span class="line">        <span class="keyword">int</span> widthRatio  = originalWidth  / reqWidth;</span><br><span class="line">        inSamplesize = heightRatio &gt; widthRatio ? heightRatio : widthRatio;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> inSamplesize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们发现，这里我先计算出了，原图尺寸与目标大小大比例，在三目运算符中，将<code>inSamplesize</code> 赋值为较大的一个。为什么不用小的那一个呢？这里我就卖个关子，大家可以在评论区中发表自己的想法</p>
+<h1 id="生成目标图片"><a href="#生成目标图片" class="headerlink" title="生成目标图片"></a>生成目标图片</h1><hr>
+<p>经过前面的两个步骤，想必大家已经能勾勒处这最后一步的做法了，思路非常简单：</p>
+<ol>
+<li>先生成一个 <code>Options</code>对象</li>
+<li>将 <code>Options 的 inJustDecodeBounds</code>设置为<code>true</code></li>
+<li>接着调用方法一<code>calculateOptionsById</code>获得原图尺寸到<code>Options</code>中</li>
+<li>调用方法三<code>calculateInSamplesizeByOptions</code> 获得相应的<code>inSampleSize</code> 对象</li>
+<li>将 <code>Options</code>的<code>inJustDecodeBounds</code>改回 <code>false</code></li>
+<li>再次调用 <code>decode...()</code>方法（这里是 <code>decodeResource</code> ）获得压缩后的 <code>Bitmap</code>对象</li>
+</ol>
+<h4 id="具体实现如下"><a href="#具体实现如下" class="headerlink" title="具体实现如下"></a>具体实现如下</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">decodeBitmapById</span> <span class="params">(@NonNull Resources res, <span class="keyword">int</span> resId, <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight)</span> </span>&#123;</span><br><span class="line">    BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</span><br><span class="line">    options.inJustDecodeBounds = <span class="keyword">true</span>;</span><br><span class="line">    calculateOptionsById(res, options, resId);</span><br><span class="line">    options.inSampleSize = calculateInSamplesizeByOptions(options, reqWidth, reqHeight);</span><br><span class="line">    options.inJustDecodeBounds = <span class="keyword">false</span>;</span><br><span class="line">    Bitmap bitmap = BitmapFactory.decodeResource(res, resId, options);</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>非常棒，我们赶紧看看效果：</p>
+<p><img src="https://img-blog.csdnimg.cn/2019100116455266.png" alt></p>
+<p>太棒了，几乎和原图效果一摸一样，但软件运行的流畅性确大大提高了！但是，这真的就完美了吗？</p>
+<p>最求完美的我们可能会有个想法：如果调用我们方法的人，或者说特殊时候的我们。不想用这个已经写好的 <code>decodeBitmapById</code>方法，而是像自己通过前两个方法：<code>calculateOptionsById</code>  <code>calculateInSamplesizeByOptions</code> 来实现图片压缩功能，这是问题就出现了：</p>
+<ul>
+<li>调用 <code>calculateOptionsById</code>  前可能忘记，设置 <code>inJustDecodeBound</code> 为 <code>true</code> ，进而导致计算超大图时，直接发生 <code>OOM</code></li>
+<li>调用完 <code>calculateInSamplesizeByOptions</code> 后可能忘记，设置<code>inJustDecodeBounds</code> 为 <code>false</code>，进而导致无法获得<code>Bitmap</code> 对象，一脸懵逼</li>
+<li>啥都做了结果调用完 <code>calculateInSamplesizeByOptions</code> 没把没回的值赋给 <code>options.inSampleSize</code> ，白忙活一场</li>
+</ul>
+<p>所以，我们需要在优化一下：</p>
+<p>首先，在<code>calculateOptionsById</code>中，默认将 <code>options.inJustDecodeBounds</code> 设置为<code>true</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">calculateOptionsById</span><span class="params">(@NonNull Resources res,@NonNull BitmapFactory.Options options, <span class="keyword">int</span> imgId)</span> </span>&#123;</span><br><span class="line">    options.inJustDecodeBounds = <span class="keyword">true</span>;</span><br><span class="line">    BitmapFactory.decodeResource(res, imgId, options);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其次，在 <code>calculateInSamplesizeByOptions</code>最后，默认将 <code>options.inJustDecodeBounds</code>设置为<code>false</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateInSamplesizeByOptions</span><span class="params">(@NonNull BitmapFactory.Options options, <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> inSamplesize   = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> originalWidth  = options.outWidth;</span><br><span class="line">    <span class="keyword">int</span> originalHeight = options.outHeight;</span><br><span class="line">    <span class="keyword">if</span> (originalHeight &gt; reqHeight || originalWidth &gt; reqWidth) &#123;</span><br><span class="line">        <span class="keyword">int</span> heightRatio = originalHeight / reqHeight;</span><br><span class="line">        <span class="keyword">int</span> widthRatio  = originalWidth  / reqWidth;</span><br><span class="line">        inSamplesize = heightRatio &gt; widthRatio ? heightRatio : widthRatio;</span><br><span class="line">    &#125;</span><br><span class="line">    options.inJustDecodeBounds = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">return</span> inSamplesize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为什么不在该方法后面，对 <code>options.inSampleSize</code>进行赋值呢？这主要是防止，有时我们可能只想得到计算相应比例来做其他操作，而不想改变原有属性，所以是否赋值，就交给用户去选择吧</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
+<p>好了，到这里为止，历时有关图片压缩的所有坑坑洼洼都已经总结好了，我们从头理以边思路：</p>
+<ol>
+<li>借助<code>options.inJustDecodeBounds</code> 参数赋值<code>true</code>时，不生成图片的特性，将原图尺寸保存在 <code>Options</code> 中</li>
+<li>通过 <code>options</code> 中原图尺寸与目标（控件）尺寸的比例，对 <code>options.inSampleSize</code> 进行设置</li>
+<li>生成目标图片</li>
+<li>压缩的问题解决了，但是每次打开图片都压缩也太麻烦了！下面我将针对这个问题进行更有效地解决 ，有兴趣可以继续关注 <strong><a href="https://blog.csdn.net/qq_43377749" target="_blank" rel="noopener">_yuanhao 的编程世界</a></strong></li>
+</ol>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><hr>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/101197865" target="_blank" rel="noopener">Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/100856599" target="_blank" rel="noopener">ViewModel 和 ViewModelProvider.Factory：ViewModel 的创建者</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/96324909" target="_blank" rel="noopener">单例模式-全局可用的 context 对象，这一篇就够了</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/94156207" target="_blank" rel="noopener">缩放手势 ScaleGestureDetector 源码解析，这一篇就够了</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/94155960" target="_blank" rel="noopener">看完这篇还不会 GestureDetector 手势检测，我跪搓衣板！</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/92629161" target="_blank" rel="noopener">Android 属性动画框架 ObjectAnimator、ValueAnimator ，这一篇就够了</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/92425865" target="_blank" rel="noopener">Android 逐帧动画（ Drawable 动画），这一篇就够了</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/91890323" target="_blank" rel="noopener">看完这篇再不会 View 的动画框架，我跪搓衣板</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/91474208" target="_blank" rel="noopener">Android 自定义时钟控件 时针、分针、秒针的绘制这一篇就够了</a></p>
+<p><a href="https://blog.csdn.net/qq_43377749/article/details/91379915" target="_blank" rel="noopener">android 自定义控件之-绘制钟表盘</a></p>
+<h3 id="请点赞！因为你的鼓励是我写作的最大动力！"><a href="#请点赞！因为你的鼓励是我写作的最大动力！" class="headerlink" title="请点赞！因为你的鼓励是我写作的最大动力！"></a>请点赞！因为你的鼓励是我写作的最大动力！</h3><hr>
+<p>源码 Demo 链接：<strong><a href="https://github.com/FishInWater-1999/Drop/blob/master/app/src/main/java/com/example/drop/utils/BitmapBuilder.java" target="_blank" rel="noopener">Drop 我第一次写的 Android 项目，希望大家点歌 star~ 谢谢！</a></strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/03/101197865/" rel="next" title="Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来">
+                <i class="fa fa-chevron-left"></i> Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#由来"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取原图大小"><span class="nav-number">3.</span> <span class="nav-text">获取原图大小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#好了，现在给出具体的实现："><span class="nav-number">3.0.0.1.</span> <span class="nav-text">好了，现在给出具体的实现：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#如何进行压缩"><span class="nav-number">4.</span> <span class="nav-text">如何进行压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#那么下面我就给出这个方法的具体实现："><span class="nav-number">4.0.0.1.</span> <span class="nav-text">那么下面我就给出这个方法的具体实现：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成目标图片"><span class="nav-number">5.</span> <span class="nav-text">生成目标图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#具体实现如下"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">具体实现如下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">7.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请点赞！因为你的鼓励是我写作的最大动力！"><span class="nav-number">7.0.1.</span> <span class="nav-text">请点赞！因为你的鼓励是我写作的最大动力！</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

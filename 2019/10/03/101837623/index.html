@@ -5,6 +5,7 @@
 
 
 
+
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
@@ -314,7 +315,7 @@
       <br><br>
       
       
-  <div id="gitalk-container"></div>
+  <div id=md5(location.pathname)></div>
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
@@ -322,9 +323,9 @@
     var gitalk = new Gitalk({
       clientID: 'b490011b0888d5755e07',
       clientSecret: 'd235d0a00fedfc15850e426ad915f2e9a7278',
-      repo: 'CommentsForGitHubPages',
+      repo: 'FishInWater-1999.github.io',
       owner: 'FishInWater-1999',
-      admin: '['FishInWater-1999']',
+      admin: 'FishInWater-1999',
       id: md5(location.pathname),
       language: 'zh-CN',
       perPage: '15',

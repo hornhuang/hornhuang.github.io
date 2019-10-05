@@ -314,6 +314,28 @@
       <br><br>
       
       
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'b490011b0888d5755e07',
+      clientSecret: 'd235d0a00fedfc15850e426ad915f2e9a7278',
+      repo: 'CommentsForGitHubPages',
+      owner: 'FishInWater-1999',
+      admin: '['FishInWater-1999']',
+      id: md5(location.pathname),
+      language: 'zh-CN',
+      perPage: '15',
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
     
   </div>
 </div>

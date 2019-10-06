@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/README.rst.html</loc>
-    
-    <lastmod>2019-10-06T03:16:18.957Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/10/06/ViewModel%20%E5%92%8C%20ViewModelProvider.Factory%EF%BC%9AViewModel%20%E7%9A%84%E5%88%9B%E5%BB%BA%E8%80%85/</loc>
     
     <lastmod>2019-10-06T03:08:34.605Z</lastmod>

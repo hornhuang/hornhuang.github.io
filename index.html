@@ -127,6 +127,59 @@
   <div class="row mb-4 mx-auto">
     
     
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/06/ViewModel 和 ViewModelProvider.Factory：ViewModel 的创建者/">
+        <p class="h4 index-header">ViewModel 和 ViewModelProvider.Factory：ViewModel 的创建者</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+朋友们好，今天我向大家介绍下 ViewModel 中如何使用 ViewModelProvider.Factory.
+
+
+现在开始所以，我们首要问题是：什么是 ViewModelProvider.Factory ?让我们在不使用 ViewModelProvider.Factory 的情况下，试着创建一个 ViewModel 看看：
+
+在活动中实例化：
+
+有没有人注意到：当我们使用 ViewModelProviders 在活动中实例化 MyViewModel 时，从未没用过 MyViewModel 的构造方法，而都是使用 ViewModelProviders 这个类中的方法。ViewModelProviders 在内部为我们管理并调用 ViewModel 的主构造函数，创建viewmodel的实例并将该实例并返回。
+那么，现在让我们看看，如果我们直接把参数传递给 MyViewModel 类的构造方法时会发生了什么：
+
+现在，我们在活动中创建 MyViewModel 实例：
+
+太棒了！没有发生任何错误
+但是，等等。
+当你运行上面这段代码的时候，你收到了 RunTimeError。程序崩溃</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Android">Android</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/ViewModelProvider">ViewModelProvider</a>&nbsp;
+          
+            <a href="/tags/ViewModel">ViewModel</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
       <div class="col-12 col-md-4 m-auto">
         <a href="/2019/10/04/在-Mac-上安装-Git-，生成-SSH-密钥用于-GitHub-授权/" target="_self">
           <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="在 Mac 上安装 Git ，生成 SSH 密钥用于 GitHub 授权" class="img-fluid rounded z-depth-3 index-thumbnails">
@@ -193,13 +246,13 @@ $ git --version
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/10/03/101837623/" target="_self">
+        <a href="/2019/10/03/每个人都要学的图片压缩终极奥义，有效解决 Android 程序 OOM/" target="_self">
           <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="每个人都要学的图片压缩终极奥义，有效解决 Android 程序 OOM" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/03/101837623/">
+      <a href="/2019/10/03/每个人都要学的图片压缩终极奥义，有效解决 Android 程序 OOM/">
         <p class="h4 index-header">每个人都要学的图片压缩终极奥义，有效解决 Android 程序 OOM</p>
         
         
@@ -252,13 +305,13 @@ OOM 即 OutOfMemory 异常，也就是我们所说的 内存溢出 ，其一般�
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/10/03/101197865/" target="_self">
+        <a href="/2019/10/03/Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来/" target="_self">
           <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/03/101197865/">
+      <a href="/2019/10/03/Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来/">
         <p class="h4 index-header">Android 让你的 Room 搭上 RxJava 的顺风车 从重复的代码中解脱出来</p>
         
         

@@ -128,6 +128,66 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/10/07/高效解决「SQLite」数据库并发访问安全问题，只这一篇就够了/" target="_self">
+          <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="高效解决「SQLite」数据库并发访问安全问题，只这一篇就够了" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/07/高效解决「SQLite」数据库并发访问安全问题，只这一篇就够了/">
+        <p class="h4 index-header">高效解决「SQLite」数据库并发访问安全问题，只这一篇就够了</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+Concurrent database access
+对于 Android Dev 而言，有关 SQLite 的操作再经常不过了，相比你一定经历过控制台一片爆红的情况，这不禁让我们疑问：SQLite 到底是线程安全的吗？
+OK  废话不多说，我们 ⬇️
+直接开始
+首先，假设你已经实现了一个 SQLiteHelper 类，如下所示：public class DatabaseHelper extends SQLiteOpenHelper { ... }
+现在你想要在两个子线程中，分别地向 SQLite 里写入一些数据：
+ // Thread 1
+ Context context = getApplicationContext();
+ DatabaseHelper helper = new DatabaseHelper(context);
+ SQLiteDatabase database = helper.getWritableDatabase();
+ database.insert(…);
+ database.close();
+
+ // Thread 2
+ Context context</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Android">Android</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/SQLite">SQLite</a>&nbsp;
+          
+            <a href="/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8">线程安全</a>&nbsp;
+          
+            <a href="/tags/%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE">并发访问</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2019/10/06/ViewModel 和 ViewModelProvider.Factory：ViewModel 的创建者/" target="_self">
           <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="ViewModel 和 ViewModelProvider.Factory：ViewModel 的创建者" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>

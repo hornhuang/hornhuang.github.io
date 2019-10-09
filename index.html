@@ -128,6 +128,78 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/10/09/单例模式-全局可用的 context 对象，这一篇就够了/" target="_self">
+          <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="单例模式-全局可用的 context 对象，这一篇就够了" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/09/单例模式-全局可用的 context 对象，这一篇就够了/">
+        <p class="h4 index-header">单例模式-全局可用的 context 对象，这一篇就够了</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+单例模式在各个方面都有着极为广泛的使用，所谓单例，顾名思义就是整个程序中只有一个该类的实例，所以它成功保证了整个程序的生命周期内该类的对象只能创建一次，并且提供全局唯一访问该类的方法：getInstance()
+
+
+使用关于单例模式主要分为两类：
+
+懒汉模式
+饿汉模式
+
+由于饿汉模式是线程安全的，所以通常情况下，我们都尽量采用饿汉模式，具体原因常见这位大佬的博文：点击前往
+本文主要结合 Android 分析下当例模式在 Android 中获得全局可用的 Context 对象
+
+搭建饿汉模式基本框架单例模式基本方法包括
+
+一个该类对象
+该类构造方法
+获得单例的方法
+
+/**单例模式
+ *
+ * 向整个应用提供 App (application) 单例
+ */
+public class AppContext {
+
+    private static AppContext instance;
+
+    public AppContext(Context application){
+
+    }
+
+    public static AppContext getInstance() {
+ </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Android">Android</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">单例模式</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2019/10/07/高效解决「SQLite」数据库并发访问安全问题，只这一篇就够了/" target="_self">
           <img src="/img/follow_me.png" srcset="/img/loading.gif" alt="高效解决「SQLite」数据库并发访问安全问题，只这一篇就够了" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>

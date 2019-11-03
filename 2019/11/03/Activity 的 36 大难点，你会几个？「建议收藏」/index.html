@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="personal website of _yuanhao">
+  <meta name="author" content="_yuanhao">
+  <meta name="keywords" content="_yuanhao Hexo blogs github android google developer">
+  <title>Activity 的 36 大难点，你会几个？「建议收藏」 ~ _yuanhao</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>_yuanhao</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期日, 十一月 3日 2019, 1:43 下午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>学 <code>Android</code> 有一段时间了，一直都只顾着学新的东西，最近发现很多平常用的少的东西竟让都忘了，趁着这两天，打算把有关 <code>Activity</code> 的内容以问题的形式梳理出来，也供大家查缺补漏。</li>
+</ul>
+<blockquote>
+<p>本文中，我将一改往日写博客的习惯，全文用 <code>XMind</code> 将所有知识点以思维导图的形式呈现，欢迎大家食用～～</p>
+</blockquote>
+<h1 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h1><hr>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab263bcee1cb?w=1172&h=2174&f=png&s=309415" srcset="/img/loading.gif" alt="文章目录"></p>
+<h1 id="方便大家学习，我在-GitHub-上建立个-仓库"><a href="#方便大家学习，我在-GitHub-上建立个-仓库" class="headerlink" title="方便大家学习，我在 GitHub 上建立个 仓库"></a>方便大家学习，我在 GitHub 上建立个 仓库</h1><hr>
+<ul>
+<li><p>仓库内容与博客同步更新。由于我在 <code>稀土掘金</code> <code>简书</code> <code>CSDN</code> <code>博客园</code> 等站点，都有新内容发布。所以大家可以直接关注该仓库，以免错过精彩内容！</p>
+</li>
+<li><p>仓库地址：<br><a href="https://github.com/FishInWater-1999/android_interviews" target="_blank" rel="noopener">超级干货！精心归纳 <code>Android</code> 、<code>JVM</code> 、算法等，各位帅气的老铁支持一下！给个 Star ！</a></p>
+</li>
+</ul>
+<h1 id="神图"><a href="#神图" class="headerlink" title="神图"></a>神图</h1><hr>
+<ul>
+<li>在开始之前，先让我们看看 <code>Android</code> 的 <code>activity</code> 到底都有哪些东西？</li>
+<li>借一张网上很火的图带你了解 <code>Activity</code></li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab263d2eccd9?w=1996&h=1912&f=png&s=155210" srcset="/img/loading.gif" alt="一张图带你了解 Activity"></p>
+<h1 id="一、生命周期"><a href="#一、生命周期" class="headerlink" title="一、生命周期"></a>一、生命周期</h1><hr>
+<ul>
+<li>先贴一张闻名遐迩的图</li>
+<li>我们生命周期先看看具体有哪些方法回调，在逐一攻破：</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab263d483f3c?w=545&h=711&f=webp&s=28710" srcset="/img/loading.gif" alt="生命周期"></p>
+<h2 id="1-1-Dialog-弹出时"><a href="#1-1-Dialog-弹出时" class="headerlink" title="1.1 Dialog 弹出时"></a>1.1 Dialog 弹出时</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2640bfa92b?w=658&h=198&f=png&s=17847" srcset="/img/loading.gif" alt="dialog弹出时"></p>
+<ul>
+<li>如果是单纯是创建的 <code>dialog</code> ，<code>Activity</code> 并不会执行生命周期的方法</li>
+<li>但是如果是跳转到一个不是全屏的 <code>Activity</code> 的话, 当然就是按照正常的生命周期来执行了</li>
+<li>即 <code>onPasue()</code> -&gt; <code>onPause()</code> (  不会执行原 <code>Activity</code> 的 <code>onStop()</code> , 否则上个页面就不显示了 )</li>
+</ul>
+<h2 id="1-2-横竖屏切换时"><a href="#1-2-横竖屏切换时" class="headerlink" title="1.2 横竖屏切换时"></a>1.2 横竖屏切换时</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2640d09989?w=1145&h=293&f=png&s=44492" srcset="/img/loading.gif" alt="横竖屏切换时"></p>
+<ul>
+<li><p>不设置 <code>Activity</code> 的 <code>android:configChanges</code> 时，切屏会重新调用各个生命周期，切横屏时会执行一次，切竖屏时会执行两次</p>
+</li>
+<li><p>设置 <code>Activity</code> 的 <code>android:configChanges=&quot;orientation&quot;</code> 时，切屏还是会重新调用各个生命周期，切横、竖屏时只会执行一次</p>
+</li>
+<li><p>设置 <code>Activity</code> 的 <code>android:configChanges=&quot;orientation|keyboardHidden&quot;</code> 时，切屏不会重新调用各个生命周期，只会执行 <code>onConfigurationChanged</code> 方法</p>
+</li>
+<li><p>注意：还有一点，非常重要，一个 <code>Android</code> 的变更细节！当 <code>API &gt;12</code> 时，需要加入 <code>screenSize</code> 属性，否则屏幕切换时即使你设置了 <code>orientation</code> 系统也会重建 <code>Activity</code> ！</p>
+</li>
+<li><p><a href="https://developer.android.com/guide/topics/resources/runtime-changes.html" target="_blank" rel="noopener">横竖屏切换生命周期的执行</a></p>
+</li>
+</ul>
+<h2 id="1-3-不同场景下-Activity-生命周期的变化过程"><a href="#1-3-不同场景下-Activity-生命周期的变化过程" class="headerlink" title="1.3 不同场景下 Activity 生命周期的变化过程"></a>1.3 不同场景下 Activity 生命周期的变化过程</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2662135b32?w=738&h=299&f=png&s=30009" srcset="/img/loading.gif" alt="不同场景下Activity生命周期的变化过程"></p>
+<ul>
+<li>启动 <code>Activity</code> ： <code>onCreate()</code> —&gt; <code>onStart()</code> —&gt; <code>onResume()</code> ，<code>Activity</code> 进入运行状态。</li>
+<li>锁屏时会执行 <code>onPause()</code> 和 <code>onStop()</code> , 而开屏时则应该执行 <code>onStart()</code>  <code>onResume()</code></li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2662bc3f51?w=820&h=301&f=png&s=35306" srcset="/img/loading.gif" alt="已启动的 Activity 生命周期的变化"></p>
+<ul>
+<li><code>Activity</code> 退居后台： 当前 <code>Activity</code> 转到新的 <code>Activity</code> 界面或按 <code>Home</code> 键回到主屏： <code>onPause()</code> —&gt; <code>onStop()</code> ，进入停滞状态。</li>
+<li><code>Activity</code> 返回前台： <code>onRestart()</code> —&gt; <code>onStart()</code> —&gt; <code>onResume()</code> ，再次回到运行状态。</li>
+<li><code>Activity</code> 退居后台： 且系统内存不足， 系统会杀死这个后台状态的 <code>Activity</code> ，若再次回到这个 <code>Activity</code> ,则会走 <code>onCreate()</code> –&gt; <code>onStart()</code> —&gt; <code>onResume()</code></li>
+</ul>
+<h2 id="1-4-将一个-Activity-设置成窗口的样式"><a href="#1-4-将一个-Activity-设置成窗口的样式" class="headerlink" title="1.4 将一个 Activity 设置成窗口的样式"></a>1.4 将一个 Activity 设置成窗口的样式</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2666b5baec?w=688&h=193&f=png&s=12952" srcset="/img/loading.gif" alt="设置 Activity 成窗口样式"></p>
+<p>只需要给我们的 <code>Activity</code> 配置如下属性即可。<br><code>android:theme=&quot;@android:style/Theme.Dialog&quot;</code></p>
+<h2 id="1-5-退出已调用多个-Activity-的-Application"><a href="#1-5-退出已调用多个-Activity-的-Application" class="headerlink" title="1.5 退出已调用多个 Activity 的 Application"></a>1.5 退出已调用多个 Activity 的 Application</h2><ul>
+<li>通常情况用户退出一个 <code>Activity</code> 只需按返回键,我们写代码想退出 <code>activity</code> 直接调用 <code>finish()</code> 方法就行。</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2668399456?w=1113&h=406&f=png&s=64712" srcset="/img/loading.gif" alt="退出调用多个 Activity 的 Application"></p>
+<ul>
+<li>发送特定广播:</li>
+</ul>
+<ol>
+<li>在需要结束应用时, 发送一个特定的广播,每个 <code>Activity</code> 收到广播后,关闭 即可。</li>
+<li>给某个 <code>activity</code> 注册接受接受广播的意图 <code>registerReceiver(receiver, filter)</code></li>
+<li>如果过接受到的是 关闭 <code>activity</code> 的广播 <code>activity finish()</code> 掉</li>
+</ol>
+<ul>
+<li>递归退出</li>
+</ul>
+<ol>
+<li>就调用 <code>finish()</code> 方法 把当前的 <code>Activity</code> 退出</li>
+<li>在打开新的 <code>Activity</code> 时使用 <code>startActivityForResult</code> , 然后自己加标志, 在 <code>onActivityResult</code> 中处理, 递归关闭。</li>
+</ol>
+<ul>
+<li>其实 </li>
+</ul>
+<ol>
+<li>也可以通过 <code>intent</code> 的 <code>flag</code> 来实现 <code>intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)</code> 激活一个新的 <code>activity</code>。 </li>
+<li>此时如果该任务栈中已经有该 <code>Activity</code> , 那么系统会把这个 <code>Activity</code> 上面的所有 <code>Activity</code> 干掉。</li>
+<li>其实相当于给 <code>Activity</code> 配置的启动模式为 <code>singleTask</code> 。</li>
+</ol>
+<ul>
+<li>记录打开的 <code>Activity</code> </li>
+</ul>
+<ol>
+<li>每打开一个 <code>Activity</code> , 就记录下来。</li>
+<li>在需要退出时 , 关闭每一个 <code>Activity</code></li>
+</ol>
+<h2 id="1-6-锁定屏与解锁屏幕，Activity-如何执行生命周期"><a href="#1-6-锁定屏与解锁屏幕，Activity-如何执行生命周期" class="headerlink" title="1.6 锁定屏与解锁屏幕，Activity 如何执行生命周期"></a>1.6 锁定屏与解锁屏幕，Activity 如何执行生命周期</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1b5f0ff6a9d15?w=767&h=204&f=png&s=20121" srcset="/img/loading.gif" alt="锁定屏与解锁屏幕，Activity如何执行生命周期"></p>
+<ul>
+<li>锁屏时会执行 <code>onPause()</code> 和 <code>onStop()</code> , 而开屏时则应该执行 <code>onStart()</code>  <code>onResume()</code></li>
+</ul>
+<h2 id="1-7-修改-Activity-进入和退出动画"><a href="#1-7-修改-Activity-进入和退出动画" class="headerlink" title="1.7 修改 Activity 进入和退出动画"></a>1.7 修改 Activity 进入和退出动画</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2666eae897?w=1072&h=216&f=png&s=30643" srcset="/img/loading.gif" alt="修改 Activity 进入和退出动画"></p>
+<ul>
+<li>可以通过两种方式 ， 一是通过定义 <code>Activity</code> 的主题 ，二是通过覆写 <code>Activity</code> 的 <code>overridePendingTransition</code> 方法。</li>
+<li>通过设置主题样式在 <code>styles.xml</code> 中编辑代码 ,  添加 <code>themes.xml</code> 文件：在 <code>AndroidManifest.xml</code> 中给指定的 <code>Activity</code> 指定 <code>theme</code>。</li>
+<li>覆写 <code>overridePendingTransition</code> 方法：<code>overridePendingTransition(R.anim.fade, R.anim.hold)</code>; </li>
+</ul>
+<h2 id="1-8-Activity-的四种状态"><a href="#1-8-Activity-的四种状态" class="headerlink" title="1.8 Activity 的四种状态"></a>1.8 Activity 的四种状态</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26844b8ee7?w=864&h=275&f=png&s=30322" srcset="/img/loading.gif" alt="四种状态"></p>
+<ul>
+<li><code>runnig</code> ：用户可以点击，<code>activity</code> 处于栈顶状态。</li>
+<li><code>paused</code> ：<code>activity</code> 失去焦点的时候，被一个非全屏的 <code>activity</code> 占据或者被一个透明的 <code>activity</code> 覆盖，这个状态的 <code>activity</code> 并没有销毁，它所有的状态信息和成员变量仍然存在，只是不能够被点击。(内存紧张的情况，这个 <code>activity</code> 有可能被回收)</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2687e2a13a?w=525&h=211&f=png&s=18803" srcset="/img/loading.gif" alt="关闭"></p>
+<ul>
+<li><code>stopped</code> ：这个 <code>activity</code> 被另外一个 <code>activity</code> 完全覆盖，但是这个 <code>activity</code> 的所有状态信息和成员变量仍然存在(除了内存紧张)</li>
+<li><code>killed</code> ：这个 <code>activity</code> 已经被销毁，其所有的状态信息和成员变量已经不存在了。</li>
+</ul>
+<h2 id="1-9-如何处理异常退出"><a href="#1-9-如何处理异常退出" class="headerlink" title="1.9 如何处理异常退出"></a>1.9 如何处理异常退出</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab268bcbf377?w=1096&h=232&f=png&s=38735" srcset="/img/loading.gif" alt="如何处理异常退出"></p>
+<ul>
+<li><code>Activity</code> 异常退出的时候 –&gt; <code>onPause()</code> –&gt; <code>onSaveInstanceState()</code> –&gt; <code>onStop()</code> –&gt; <code>onDestory()</code></li>
+<li>需要注意的是 <code>onSaveInstanceState()</code> 方法与 <code>onPause</code> 并没有严格的先后关系，有可能在 <code>onPause</code> 之前，也有可能在其后面调用，但会在 <code>onStop()</code> 方法之前调用</li>
+<li>异常退出后又重新启动该 <code>Activity</code>  –&gt; <code>onCreate()</code> –&gt; <code>onStart()</code> –&gt; <code>onRestoreInstanceState()</code> –&gt; <code>onResume()</code></li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab268c50ae91?w=714&h=259&f=png&s=44082" srcset="/img/loading.gif" alt="异常退出后又重新启动"></p>
+<ul>
+<li>搞懂这个生命周期的执行后就可以回答了，首先要知道面试官的意思：是要重新启动并恢复这个 <code>Activity</code> 还是说直接退出整个 <code>app</code> </li>
+<li>如果要恢复则要在 <code>onSaveInstanceState()</code> 中进行保存数据并在 <code>onRestoreInstanceState()</code> 中进行恢复</li>
+<li>如果是要退出 <code>app</code> 的话就要捕获全局的异常信息，并退出 <code>app</code> </li>
+<li>当然个人建议是使用 <code>UncaughtExceotionHandler</code> 来捕获全局异常进行退出 <code>app</code> 的操作，这样会减少之前崩溃所造成的后遗症！</li>
+</ul>
+<h2 id="1-10-什么是-onNewIntent"><a href="#1-10-什么是-onNewIntent" class="headerlink" title="1.10 什么是 onNewIntent"></a>1.10 什么是 onNewIntent</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26900d9292?w=909&h=231&f=png&s=22086" srcset="/img/loading.gif" alt="onNewIntent"></p>
+<ul>
+<li><p>如果 <code>IntentActivity</code> 处于任务栈的顶端，也就是说之前打开过的 <code>Activity</code> ，现在处于 <code>onPause</code> 、 <code>onStop</code> 状态的话，其他应用再发送 <code>Intent</code> 的话</p>
+</li>
+<li><p>执行顺序为：<code>onNewIntent</code>，<code>onRestart</code>，<code>onStart</code>，<code>onResume</code>。</p>
+</li>
+</ul>
+<h1 id="二、启动模式"><a href="#二、启动模式" class="headerlink" title="二、启动模式"></a>二、启动模式</h1><hr>
+<h2 id="2-1-启动模式"><a href="#2-1-启动模式" class="headerlink" title="2.1 启动模式"></a>2.1 启动模式</h2><p> <img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2695ac3863?w=412&h=198&f=png&s=9462" srcset="/img/loading.gif" alt="启动模式"></p>
+<ul>
+<li><code>Activity</code> 一共有四种 <code>launchMode</code> ：<code>standard</code> 、<code>singleTop</code> 、<code>singleTask</code> 、<code>singleInstance</code> 。</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26af18ff50?w=865&h=276&f=png&s=34230" srcset="/img/loading.gif" alt="Standard"></p>
+<ul>
+<li><code>Standard</code> 模式（默认模式）</li>
+</ul>
+<ol>
+<li><p>说明： 每次启动一个 <code>Activity</code> 都会又一次创建一个新的实例入栈，无论这个实例是否存在。</p>
+</li>
+<li><p>生命周期：每次被创建的实例 <code>Activity</code> 的生命周期符合典型情况，它的 <code>onCreate</code> 、<code>onStart</code> 、<code>onResume</code> 都会被调用。</p>
+</li>
+<li><p>举例：此时 <code>Activity</code> 栈中以此有 <code>A</code> 、<code>B</code> 、<code>C</code> 三个 <code>Activity</code> ，此时C处于栈顶，启动模式为 <code>Standard</code> 模式。若在 <code>C Activity</code> 中加入点击事件，须要跳转到还有一个同类型的 <code>C Activity</code> 。结果是还有一个 <code>C Activity</code> 进入栈中，成为栈顶。</p>
+</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26af2f73ef?w=826&h=298&f=png&s=50008" srcset="/img/loading.gif" alt="SingleTop"></p>
+<ul>
+<li><code>SingleTop</code> 模式（栈顶复用模式）</li>
+</ul>
+<ol>
+<li><p>说明：分两种处理情况：须要创建的 <code>Activity</code> 已经处于栈顶时，此时会直接复用栈顶的 <code>Activity</code> 。不会再创建新的 <code>Activity</code> ；若须要创建的 <code>Activity</code> 不处于栈顶，此时会又一次创建一个新的 <code>Activity</code> 入栈，同 <code>Standard</code> 模式一样。</p>
+</li>
+<li><p>生命周期：若情况一中栈顶的 <code>Activity</code> 被直接复用时，它的 <code>onCreate</code> 、<code>onStart</code> 不会被系统调用，由于它并没有发生改变。可是一个新的方法 <code>onNewIntent</code> 会被回调（ <code>Activity</code> 被正常创建时不会回调此方法）。</p>
+</li>
+<li><p>举例：此时 <code>Activity</code> 栈中以此有 <code>A</code> 、<code>B</code> 、<code>C</code> 三个 <code>Activity</code> ，此时 <code>C</code> 处于栈顶，启动模式为 <code>SingleTop</code> 模式。情况一：在 <code>C Activity</code> 中加入点击事件，须要跳转到还有一个同类型的 <code>C Activity</code> 。结果是直接复用栈顶的 <code>C Activity</code>。情况二：在 <code>C Activity</code> 中加入点击事件，须要跳转到还有一个 <code>A Activity</code>。结果是创建一个新的 <code>Activity</code> 入栈。成为栈顶。</p>
+</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26b234a4cb?w=933&h=310&f=png&s=55368" srcset="/img/loading.gif" alt="SingleTask"></p>
+<ul>
+<li><code>SingleTask</code> 模式（栈内复用模式）</li>
+</ul>
+<ol>
+<li><p>说明：若须要创建的 <code>Activity</code> 已经处于栈中时，此时不会创建新的 <code>Activity</code> ，而是将存在栈中的 <code>Activity</code> 上面的其他 <code>Activity</code> 所有销毁，使它成为栈顶。</p>
+</li>
+<li><p>如果是在别的应用程序中启动它，则会新建一个 <code>task</code> ，并在该task中启动这个 <code>Activity</code> ，<code>singleTask</code> 允许别的 <code>Activity</code> 与其在一个 <code>task</code> 中共存，也就是说，如果我在这个 <code>singleTask</code> 的实例中再打开新的 <code>Activity</code> ，这个新的 <code>Activity</code> 还是会在 <code>singleTask</code> 的实例的 <code>task</code> 中。</p>
+</li>
+<li><p>生命周期：同 <code>SingleTop</code> 模式中的情况一同样。仅仅会又一次回调 <code>Activity</code> 中的 <code>onNewIntent</code> 方法</p>
+</li>
+<li><p>举例：此时 <code>Activity</code> 栈中以此有 <code>A</code> 、<code>B</code> 、<code>C</code> 三个 <code>Activity</code> 。此时 <code>C</code> 处于栈顶，启动模式为 <code>SingleTask</code> 模式。情况一：在 <code>C Activity</code> 中加入点击事件，须要跳转到还有一个同类型的 <code>C Activity</code> 。结果是直接用栈顶的 <code>C Activity</code> 。情况二：在 <code>C Activity</code> 中加入点击事件，须要跳转到还有一个 <code>A Activity</code> 。结果是将 <code>A Activity</code> 上面的 <code>B</code> 、<code>C</code> 所有销毁，使 <code>A Activity</code> 成为栈顶。</p>
+</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26b197fba4?w=823&h=295&f=png&s=43520" srcset="/img/loading.gif" alt="ingleInstance"></p>
+<ul>
+<li><code>SingleInstance</code> 模式（单实例模式）</li>
+</ul>
+<ol>
+<li><p>说明： <code>SingleInstance</code> 比较特殊，是全局单例模式，是一种加强的 <code>SingleTask</code> 模式。它除了具有它所有特性外，还加强了一点：只有一个实例，并且这个实例独立运行在一个 <code>task</code> 中，这个 <code>task</code> 只有这个实例，不允许有别的 <code>Activity</code> 存在。</p>
+</li>
+<li><p>这个经常使用于系统中的应用，比如 <code>Launch</code> 、锁屏键的应用等等，整个系统中仅仅有一个！所以在我们的应用中一般不会用到。了解就可以。</p>
+</li>
+<li><p>举例：比方 <code>A Activity</code> 是该模式，启动 <code>A</code> 后。系统会为它创建一个单独的任务栈，由于栈内复用的特性。兴许的请求均不会创建新的 <code>Activity</code> ，除非这个独特的任务栈被系统销毁。</p>
+</li>
+</ol>
+<h2 id="2-2-启动模式的使用方式"><a href="#2-2-启动模式的使用方式" class="headerlink" title="2.2 启动模式的使用方式"></a>2.2 启动模式的使用方式</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26b281455b?w=1068&h=273&f=png&s=48274" srcset="/img/loading.gif" alt="启动模式的使用方式"></p>
+<ul>
+<li>在 <code>Manifest.xml</code> 中指定 <code>Activity</code> 启动模式</li>
+</ul>
+<ol>
+<li>一种静态的指定方法</li>
+<li>在 <code>Manifest.xml</code> 文件里声明 <code>Activity</code> 的同一时候指定它的启动模式</li>
+<li>这样在代码中跳转时会依照指定的模式来创建 <code>Activity</code> 。</li>
+</ol>
+<ul>
+<li>启动 <code>Activity</code> 时。在 <code>Intent</code> 中指定启动模式去创建 <code>Activity</code></li>
+</ul>
+<ol>
+<li>一种动态的启动模式</li>
+<li>在 <code>new</code> 一个 <code>Intent</code> 后</li>
+<li>通过 <code>Intent</code> 的 <code>addFlags</code> 方法去动态指定一个启动模式。</li>
+</ol>
+<ul>
+<li>注意：以上两种方式都能够为 <code>Activity</code> 指定启动模式，可是二者还是有差别的。</li>
+</ul>
+<ol>
+<li><p>优先级：动态指定方式即另外一种比第一种优先级要高，若两者同一时候存在，以另外一种方式为准。</p>
+</li>
+<li><p>限定范围：第一种方式无法为 <code>Activity</code> 直接指定 <code>FLAG_ACTIVITY_CLEAR_TOP</code> 标识，另外一种方式无法为 <code>Activity</code> 指定 <code>singleInstance</code> 模式。</p>
+</li>
+</ol>
+<h2 id="2-3-启动模式的实际应用场景"><a href="#2-3-启动模式的实际应用场景" class="headerlink" title="2.3 启动模式的实际应用场景"></a>2.3 启动模式的实际应用场景</h2><blockquote>
+<p>这四种模式中的 <code>Standard</code> 模式是最普通的一种，没有什么特别注意。而 <code>SingleInstance</code> 模式是整个系统的单例模式，在我们的应用中一般不会应用到。所以，这里就具体解说  <code>SingleTop</code> 和 <code>SingleTask</code> 模式的运用场景：</p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26b65bb92a?w=1084&h=355&f=png&s=77629" srcset="/img/loading.gif" alt="启动模式的实际应用场景"></p>
+<ul>
+<li><code>SingleTask</code> 模式的运用场景</li>
+</ul>
+<ol>
+<li>最常见的应用场景就是保持我们应用开启后仅仅有一个 <code>Activity</code> 的实例。</li>
+<li>最典型的样例就是应用中展示的主页（ <code>Home</code> 页）。</li>
+<li>假设用户在主页跳转到其他页面，运行多次操作后想返回到主页，假设不使用 <code>SingleTask</code> 模式，在点击返回的过程中会多次看到主页，这明显就是设计不合理了。</li>
+</ol>
+<ul>
+<li><code>SingleTop</code> 模式的运用场景</li>
+</ul>
+<ol>
+<li>假设你在当前的 <code>Activity</code> 中又要启动同类型的 <code>Activity</code> </li>
+<li>此时建议将此类型 <code>Activity</code> 的启动模式指定为 <code>SingleTop</code> ，能够降低Activity的创建，节省内存！</li>
+</ol>
+<ul>
+<li>注意：复用 <code>Activity</code> 时的生命周期回调</li>
+</ul>
+<ol>
+<li>这里还须要考虑一个 <code>Activity</code> 跳转时携带页面參数的问题。</li>
+<li>由于当一个 <code>Activity</code> 设置了 <code>SingleTop</code> 或者 <code>SingleTask</code> 模式后，跳转此 <code>Activity</code> 出现复用原有 <code>Activity</code> 的情况时，此 <code>Activity</code> 的 <code>onCreate</code> 方法将不会再次运行。<code>onCreate</code> 方法仅仅会在第一次创建 <code>Activity</code> 时被运行。</li>
+<li>而一般 <code>onCreate</code> 方法中会进行该页面的数据初始化、<code>UI</code> 初始化，假设页面的展示数据无关页面跳转传递的參数，则不必操心此问题</li>
+<li>若页面展示的数据就是通过 <code>getInten()</code> 方法来获取，那么问题就会出现：<code>getInten()</code> 获取的一直都是老数据，根本无法接收跳转时传送的新数据！</li>
+</ol>
+<ul>
+<li>以下，通过一个样例来具体解释：</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26cff841e2?w=474&h=604&f=png&s=27141" srcset="/img/loading.gif" alt="图片描述"></p>
+<ul>
+<li><p>以上代码中的 <code>CourseDetailActivity</code> 在配置文件里设置了启动模式是 <code>SingleTop</code> 模式，依据上面启动模式的介绍可得知，当 <code>CourseDetailActivity</code> 处于栈顶时。</p>
+</li>
+<li><p>再次跳转页面到 <code>CourseDetailActivity</code> 时会直接复用原有的 <code>Activity</code> ，并且此页面须要展示的数据是从 <code>getIntent()</code> 方法得来，可是 <code>initData()</code> 方法不会再次被调用，此时页面就无法显示新的数据。</p>
+</li>
+<li><p>当然这样的情况系统早就为我们想过了，这时我们须要另外一个回调 <code>onNewIntent（Intent intent）</code>方法。此方法会传入最新的 <code>intent</code> ，这样我们就能够解决上述问题。这里建议的方法是又一次去 <code>setIntent</code> 。然后又一次去初始化数据和 <code>UI</code> 。代码例如以下所看到的：</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26f4794839?w=377&h=242&f=png&s=8470" srcset="/img/loading.gif" alt="图片描述"></p>
+<ul>
+<li>这样，在一个页面中能够反复跳转并显示不同的内容。</li>
+</ul>
+<h2 id="2-4-快速启动一个-Activity"><a href="#2-4-快速启动一个-Activity" class="headerlink" title="2.4 快速启动一个 Activity"></a>2.4 快速启动一个 Activity</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26f46155c8?w=720&h=229&f=png&s=21333" srcset="/img/loading.gif" alt="快速启动一个 Activity"></p>
+<ul>
+<li>这个问题其实也是比较简单的，就是不要在 <code>Activity</code> 的 <code>onCreate</code> 方法中执行过多繁重的操作，并且在 <code>onPasue</code> 方法中同样不能做过多的耗时操作。</li>
+</ul>
+<h2 id="2-5-启动流程"><a href="#2-5-启动流程" class="headerlink" title="2.5 启动流程"></a>2.5 启动流程</h2><ul>
+<li><p>注意！这里并不是要回答 <code>Activity</code> 的生命周期！</p>
+</li>
+<li><p><a href="https://juejin.im/entry/58f5b68e61ff4b005807ab47" target="_blank" rel="noopener">3 分钟看懂 <code>Activity</code> 启动流程</a></p>
+</li>
+</ul>
+<h2 id="2-6-Activity-的-Flags"><a href="#2-6-Activity-的-Flags" class="headerlink" title="2.6 Activity 的 Flags"></a>2.6 Activity 的 Flags</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26f431a604?w=703&h=240&f=png&s=24947" srcset="/img/loading.gif" alt="Activity 的 Flags"></p>
+<ul>
+<li><p>标记位既能够设定Activity的启动模式，如同上面介绍的，在动态指定启动模式，比方 <code>FLAG_ACTIVITY_NEW_TASK</code> 和 <code>FLAG_ACTIVITY_SINGLE_TOP</code> 等。它还能够影响 <code>Activity</code> 的运行状态 ，比方 <code>FLAG_ACTIVITY_CLEAN_TOP</code> 和 <code>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS</code> 等。</p>
+</li>
+<li><p>以下介绍几个基本的标记位，切勿死记，理解几个就可以，须要时再查官方文档。</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab26f64ed138?w=1217&h=336&f=png&s=56661" srcset="/img/loading.gif" alt="几个基本的标记位"></p>
+<ul>
+<li><code>FLAG_ACTIVITY_NEW_TASK</code></li>
+</ul>
+<ol>
+<li>作用是为 <code>Activity</code> 指定 <code>“SingleTask”</code> 启动模式。跟在 <code>AndroidMainfest.xml</code> 指定效果同样</li>
+</ol>
+<ul>
+<li><code>FLAG_ACTIVITY_SINGLE_TOP</code></li>
+</ul>
+<ol>
+<li>作用是为 <code>Activity</code> 指定 <code>“SingleTop”</code> 启动模式，跟在 <code>AndroidMainfest.xml</code> 指定效果同样。</li>
+</ol>
+<ul>
+<li><code>FLAG_ACTIVITY_CLEAN_TOP</code></li>
+</ul>
+<ol>
+<li>具有此标记位的 <code>Activity</code> ，启动时会将与该 <code>Activity</code> 在同一任务栈的其他 <code>Activity</code> 出栈。</li>
+<li>一般与 <code>SingleTask</code> 启动模式一起出现。</li>
+<li>它会完毕 <code>SingleTask</code> 的作用。</li>
+<li>但事实上 <code>SingleTask</code> 启动模式默认具有此标记位的作用</li>
+</ol>
+<ul>
+<li><code>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS</code></li>
+</ul>
+<ol>
+<li>具有此标记位的 <code>Activity</code> 不会出如今历史 <code>Activity</code> 的列表中</li>
+<li>使用场景：当某些情况下我们不希望用户通过历史列表回到 <code>Activity</code> 时，此标记位便体现了它的效果。</li>
+<li>它等同于在 <code>xml</code> 中指定 <code>Activity</code> 的属性.</li>
+</ol>
+<h2 id="2-7-onNewInstent-方法什么时候执行"><a href="#2-7-onNewInstent-方法什么时候执行" class="headerlink" title="2.7 onNewInstent()方法什么时候执行"></a>2.7 onNewInstent()方法什么时候执行</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2713491d3c?w=800&h=229&f=png&s=21903" srcset="/img/loading.gif" alt="onNewInstent()方法什么时候执行"></p>
+<p>这个是启动模式中的了，当此 <code>Activity</code> 的实例已经存在，并且此时的启动模式为 <code>SingleTask</code> 和 <code>SingleInstance</code> ，另外当这个实例位于栈顶且启动模式为 <code>SingleTop</code> 时也会触发 <code>onNewInstent()</code> 。</p>
+<h1 id="三、数据"><a href="#三、数据" class="headerlink" title="三、数据"></a>三、数据</h1><hr>
+<h2 id="3-1-Activity-间通过-Intent-传递数据大小限制"><a href="#3-1-Activity-间通过-Intent-传递数据大小限制" class="headerlink" title="3.1 Activity 间通过 Intent 传递数据大小限制"></a>3.1 Activity 间通过 Intent 传递数据大小限制</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2718c279eb?w=814&h=239&f=png&s=36222" srcset="/img/loading.gif" alt="Activity 间通过 Intent 传递数据大小限制"></p>
+<ul>
+<li><code>Intent</code> 在传递数据时是有大小限制的，这里官方并未详细说明，不过通过实验的方法可以测出数据应该被限制在 <code>1MB</code> 之内（ <code>1024KB</code> ）</li>
+<li>我们采用传递 <code>Bitmap</code> 的方法，发现当图片大小超过 <code>1024</code>（准确地说是 <code>1020</code> 左右）的时候，程序就会出现闪退、停止运行等异常(不同的手机反应不同)</li>
+<li>因此可以判断 <code>Intent</code> 的传输容量在 <code>1MB</code> 之内。</li>
+</ul>
+<h2 id="3-2-内存不足时系统会杀掉后台的Activity，若需要进行一些临时状态的保存，在哪个方法进行"><a href="#3-2-内存不足时系统会杀掉后台的Activity，若需要进行一些临时状态的保存，在哪个方法进行" class="headerlink" title="3.2 内存不足时系统会杀掉后台的Activity，若需要进行一些临时状态的保存，在哪个方法进行"></a>3.2 内存不足时系统会杀掉后台的Activity，若需要进行一些临时状态的保存，在哪个方法进行</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab271cea5c35?w=1020&h=279&f=png&s=53811" srcset="/img/loading.gif" alt="onSaveInstanceState()"></p>
+<ul>
+<li><p><code>Activity</code> 的 <code>onSaveInstanceState()</code> 和 <code>onRestoreInstanceState()</code> 并不是生命周期方法，它们不同于 <code>onCreate()</code> 、<code>onPause()</code> 等生命周期方法，它们并不一定会被触发。</p>
+</li>
+<li><p><code>onSaveInstanceState()</code> 方法，当应用遇到意外情况（如：内存不足、用户直接按 <code>Home</code> 键）由系统销毁一个 <code>Activity</code> ，<code>onSaveInstanceState()</code> 会被调用。</p>
+</li>
+<li><p>但是当用户主动去销毁一个 <code>Activity</code> 时，例如在应用中按返回键，<code>onSaveInstanceState()</code> 就不会被调用。</p>
+</li>
+<li><p>除非该 <code>activity</code> 不是被用户主动销毁的，通常 <code>onSaveInstanceState()</code> 只适合用于保存一些临时性的状态，而 <code>onPause()</code> 适合用于数据的持久化保存。</p>
+</li>
+</ul>
+<h2 id="3-3-onSaveInstanceState-被执行的场景"><a href="#3-3-onSaveInstanceState-被执行的场景" class="headerlink" title="3.3 onSaveInstanceState() 被执行的场景"></a>3.3 onSaveInstanceState() 被执行的场景</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2734eb5c0d?w=1020&h=279&f=png&s=53811" srcset="/img/loading.gif" alt="onSaveInstanceState() 被执行的场景"></p>
+<ul>
+<li>系统不知道你按下 <code>HOME</code> 后要运行多少其他的程序，自然也不知道 <code>activity A</code> 是否会被销毁</li>
+<li>因此系统都会调用 <code>onSaveInstanceState()</code> ，让用户有机会保存某些非永久性的数据。以下几种情况的分析都遵循该原则：</li>
+</ul>
+<ol>
+<li>当用户按下 <code>HOME</code> 键时</li>
+<li>长按 <code>HOME</code> 键，选择运行其他的程序时</li>
+<li>锁屏时</li>
+<li>从 <code>activity A</code> 中启动一个新的 <code>activity</code> 时</li>
+<li>屏幕方向切换时</li>
+</ol>
+<h2 id="3-4-两个-Activity-之间跳转时必然会执行的方法"><a href="#3-4-两个-Activity-之间跳转时必然会执行的方法" class="headerlink" title="3.4 两个 Activity 之间跳转时必然会执行的方法"></a>3.4 两个 Activity 之间跳转时必然会执行的方法</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2729e02a24?w=1117&h=241&f=png&s=34792" srcset="/img/loading.gif" alt="两个 Activity 之间跳转时必然会执行的方法"></p>
+<p>一般情况下比如说有两个 <code>activity</code> , 分别叫 <code>A</code> , <code>B</code> ,当在 <code>A</code> 里面激活 <code>B</code> 组件的时候, <code>A</code> 会调用 <code>onPause()</code> 方法,然后 <code>B</code> 调用 <code>onCreate()</code> , <code>onStart()</code> , <code>onResume()</code> 。</p>
+<p>这个时候 <code>B</code> 覆盖了窗体, <code>A</code> 会调用 <code>onStop()</code> 方法. 如果 <code>B</code> 是个透明的,或者 是对话框的样式, 就不会调用 <code>A</code> 的 <code>onStop()</code> 方法。</p>
+<h2 id="3-5-用-Intent-去启动一个Activity-之外的方法"><a href="#3-5-用-Intent-去启动一个Activity-之外的方法" class="headerlink" title="3.5 用 Intent 去启动一个Activity 之外的方法"></a>3.5 用 Intent 去启动一个Activity 之外的方法</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2724c3da3d?w=1104&h=235&f=png&s=25212" srcset="/img/loading.gif" alt="用 Intent 去启动一个Activity 之外的方法"></p>
+<ul>
+<li>使用 <code>adb shell am</code> 命令</li>
+</ul>
+<ol>
+<li><code>am</code> 启动一个 <code>activity</code></li>
+<li><code>adb shell am start com.example.fuchenxuan/.MainActivity</code></li>
+<li><code>am</code> 发送一个广播，使用 <code>action</code></li>
+<li><code>adb shell am broadcast -a magcomm.action.TOUCH_LETTER</code></li>
+</ol>
+<h2 id="3-6-scheme-跳转协议"><a href="#3-6-scheme-跳转协议" class="headerlink" title="3.6 scheme 跳转协议"></a>3.6 scheme 跳转协议</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab273d2660f7?w=1311&h=949&f=png&s=213009" srcset="/img/loading.gif" alt="scheme跳转协议"></p>
+<h4 id="3-6-1-定义"><a href="#3-6-1-定义" class="headerlink" title="3.6.1 定义"></a>3.6.1 定义</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab273f2b0b6b?w=566&h=229&f=png&s=16944" srcset="/img/loading.gif" alt="定义"></p>
+<ul>
+<li><p>服务器可以定制化跳转 <code>app</code> 页面</p>
+</li>
+<li><p><code>app</code> 可以通过 <code>Scheme</code> 跳转到另一个 <code>app</code> 页面</p>
+</li>
+<li><p>可以通过 <code>h5</code> 页面跳转 <code>app</code> 原生页面</p>
+</li>
+</ul>
+<h4 id="3-6-2-协议格式："><a href="#3-6-2-协议格式：" class="headerlink" title="3.6.2 协议格式："></a>3.6.2 协议格式：</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab27484aabff?w=615&h=50&f=png&s=4554" srcset="/img/loading.gif" alt="协议格式"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab275b9808fe?w=439&h=325&f=png&s=24178" srcset="/img/loading.gif" alt="协议格式"></p>
+<ul>
+<li><p><code>qh</code> 代表 <code>Scheme</code> 协议名称</p>
+</li>
+<li><p><code>test</code> 代表 <code>Scheme</code> 作用的地址域</p>
+</li>
+<li><p><code>8080</code> 代表改路径的端口号</p>
+</li>
+<li><p><code>/goods</code> 代表的是指定页面(路径)</p>
+</li>
+<li><p><code>goodsId</code> 和 <code>name</code> 代表传递的两个参数</p>
+</li>
+</ul>
+<h4 id="3-6-3-Scheme使用"><a href="#3-6-3-Scheme使用" class="headerlink" title="3.6.3 Scheme使用"></a>3.6.3 Scheme使用</h4><ul>
+<li>定义一个 <code>Scheme</code></li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2743ad29d1?w=790&h=403&f=png&s=33849" srcset="/img/loading.gif" alt></p>
+<ul>
+<li>获取 <code>Scheme</code> 跳转的参数</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2765f5a51a?w=685&h=484&f=png&s=49836" srcset="/img/loading.gif" alt></p>
+<ul>
+<li>调用方式</li>
+</ul>
+<ol>
+<li>原生调用</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2766001c6d?w=949&h=44&f=png&s=6706" srcset="/img/loading.gif" alt></p>
+<ol start="2">
+<li>html调用</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab276d16ed37?w=582&h=30&f=png&s=3615" srcset="/img/loading.gif" alt></p>
+<ol start="3">
+<li>判断某个Scheme是否有效</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab278265ad01?w=976&h=106&f=png&s=15178" srcset="/img/loading.gif" alt></p>
+<ul>
+<li>关于scheme跳转协议，可以查看下面的博客，站在巨人的肩膀上，才能看得更远 <a href="https://link.jianshu.com/?t=http://blog.csdn.net/qq_23547831/article/details/51685310" target="_blank" rel="noopener">Android产品研发（十一）–&gt;应用内跳转Scheme协议</a></li>
+</ul>
+<br>
+
+
+<h1 id="四、Context"><a href="#四、Context" class="headerlink" title="四、Context"></a>四、Context</h1><hr>
+<h2 id="4-1-Context-Activity-Appliction-的区别"><a href="#4-1-Context-Activity-Appliction-的区别" class="headerlink" title="4.1 Context , Activity , Appliction 的区别"></a>4.1 Context , Activity , Appliction 的区别</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2780c638c9?w=1139&h=223&f=png&s=32214" srcset="/img/loading.gif" alt="Context, Activity, Appliction 的区别"></p>
+<ul>
+<li>相同:<code>Activity</code> 和 <code>Application</code> 都是 <code>Context</code> 的子类。</li>
+<li><code>Context</code> 从字面上理解就是上下文的意思, 在实际应用中它也确实是起到了管理 上下文环境中各个参数和变量的总用, 方便我们可以简单的访问到各种资源。</li>
+<li>不同:维护的生命周期不同。<code>Context</code> 维护的是当前的 <code>Activity</code> 的生命周期, <code>Application</code> 维护的是整个项目的生命周期。</li>
+<li>使用 <code>context</code> 的时候,  小心内存泄露, 防止内存泄露</li>
+</ul>
+<h2 id="4-2-Context-是什么"><a href="#4-2-Context-是什么" class="headerlink" title="4.2 Context 是什么"></a>4.2 Context 是什么</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab278295b2b0?w=1256&h=236&f=png&s=33907" srcset="/img/loading.gif" alt="Context 是什么"></p>
+<ul>
+<li><p>它描述的是一个应用程序环境的信息,即上下文。</p>
+</li>
+<li><p>该类是一个抽象( <code>abstract class</code> )类,  <code>Android</code> 提供了该抽象类的具体实 现类( <code>ContextIml</code> )。</p>
+</li>
+<li><p>通过它我们可以获取应用程序的资源和类, 也包括一些应用级别操作,  例如:启动一个 <code>Activity</code> ,发送广播,接受 <code>Intent</code> ,信息,等。</p>
+</li>
+</ul>
+<h4 id="4-2-1-附加一张-Context-继承关系图"><a href="#4-2-1-附加一张-Context-继承关系图" class="headerlink" title="4.2.1 附加一张 Context 继承关系图"></a>4.2.1 附加一张 Context 继承关系图</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2782c145c5?w=737&h=544&f=webp&s=12866" srcset="/img/loading.gif" alt="Context继承关系图"></p>
+<h2 id="4-3-获取当前屏幕-Activity-的对象"><a href="#4-3-获取当前屏幕-Activity-的对象" class="headerlink" title="4.3 获取当前屏幕 Activity 的对象"></a>4.3 获取当前屏幕 Activity 的对象</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab278bb02fa6?w=808&h=255&f=png&s=29077" srcset="/img/loading.gif" alt="获取当前屏幕Activity的对象"></p>
+<ul>
+<li><p>使用 ActivityLifecycleCallbacks</p>
+</li>
+<li><p><a href="https://link.jianshu.com/?t=http://blog.csdn.net/vfush/article/details/51483436" target="_blank" rel="noopener">Android 如何获取当前Activity实例对象？</a></p>
+</li>
+</ul>
+<h2 id="4-4-Activity-的管理机制"><a href="#4-4-Activity-的管理机制" class="headerlink" title="4.4 Activity 的管理机制"></a>4.4 Activity 的管理机制</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2799c85ff1?w=1467&h=299&f=png&s=80622" srcset="/img/loading.gif" alt="Activity的管理机制"></p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/33729a7a66da" target="_blank" rel="noopener">Activity的管理机制</a></p>
+</li>
+<li><p>面试官问这个问题，想看看大家对Activity了解是否深入：</p>
+</li>
+</ul>
+<ol>
+<li>什么是 ActivityRecord</li>
+<li>什么是 TaskRecord</li>
+<li>什么是 ActivityManagerService</li>
+</ol>
+<h2 id="4-5-什么是-Activity"><a href="#4-5-什么是-Activity" class="headerlink" title="4.5 什么是 Activity"></a>4.5 什么是 Activity</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab279e0daf15?w=782&h=237&f=png&s=27101" srcset="/img/loading.gif" alt="什么是 Activity"></p>
+<ul>
+<li>四大组件之一，通常一个用户交互界面对应一个 <code>activity</code> 。</li>
+<li><code>activity</code> 是 <code>Context</code> 的子类，同时实现了 <code>window.callback</code> 和 <code>keyevent.callback</code> ，可以处理与窗体用户交互的事件。</li>
+<li>开发中常用的有 <code>FragmentActivity</code> 、<code>ListActivity</code> 、<code>TabActivity</code>（ <code>Android 4.0</code> 被 <code>Fragment</code> 取代）</li>
+</ul>
+<h1 id="五、进程"><a href="#五、进程" class="headerlink" title="五、进程"></a>五、进程</h1><hr>
+<h2 id="5-1-Android-进程优先级"><a href="#5-1-Android-进程优先级" class="headerlink" title="5.1 Android 进程优先级"></a>5.1 Android 进程优先级</h2><ul>
+<li>前台 / 可见 / 服务 / 后台 / 空</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab279eee3314?w=499&h=395&f=png&s=29435" srcset="/img/loading.gif" alt="前台 / 可见 / 服务 / 后台 / 空"></p>
+<h4 id="5-1-1-前台进程：Foreground-process"><a href="#5-1-1-前台进程：Foreground-process" class="headerlink" title="5.1.1 前台进程：Foreground process"></a>5.1.1 前台进程：Foreground process</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab27a5c1b536?w=657&h=325&f=png&s=29327" srcset="/img/loading.gif" alt="前台进程：Foreground process"></p>
+<ul>
+<li>用户正在交互的 <code>Activity</code>（ <code>onResume()</code> ）</li>
+<li>当某个 <code>Service</code> 绑定正在交互的 <code>Activity</code></li>
+<li>被主动调用为前台 <code>Service</code>（ <code>startForeground()</code> ）</li>
+<li>组件正在执行生命周期的回调（ <code>onCreate()</code> 、<code>onStart()</code> 、<code>onDestory()</code> ）</li>
+<li><code>BroadcastReceiver</code> 正在执行 <code>onReceive()</code></li>
+</ul>
+<h4 id="5-1-2-可见进程：Visible-process"><a href="#5-1-2-可见进程：Visible-process" class="headerlink" title="5.1.2 可见进程：Visible process"></a>5.1.2 可见进程：Visible process</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab27a9560902?w=538&h=185&f=png&s=12282" srcset="/img/loading.gif" alt="可见进程：Visible process"></p>
+<ul>
+<li>我们的 <code>Activity</code> 处在 <code>onPause()</code>（没有进入 <code>onStop()</code> ）</li>
+<li>绑定到前台 <code>Activity</code> 的 <code>Service</code></li>
+</ul>
+<h4 id="5-1-3-服务进程：Service-process"><a href="#5-1-3-服务进程：Service-process" class="headerlink" title="5.1.3 服务进程：Service process"></a>5.1.3 服务进程：Service process</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab27ba678cf4?w=395&h=144&f=png&s=6342" srcset="/img/loading.gif" alt="服务进程"></p>
+<ul>
+<li>简单的 <code>startService()</code> 启动。</li>
+</ul>
+<h4 id="5-1-4-后台进程：Background-process"><a href="#5-1-4-后台进程：Background-process" class="headerlink" title="5.1.4 后台进程：Background process"></a>5.1.4 后台进程：Background process</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab27ba9dbb3b?w=595&h=185&f=png&s=12119" srcset="/img/loading.gif" alt="后台进程：Background process"></p>
+<ul>
+<li>对用户没有直接影响的进程 — <code>Activity</code> 处于 <code>onStop()</code> 的时候。</li>
+<li><code>android:process=&quot;:xxx&quot;</code></li>
+</ul>
+<h4 id="5-1-5-空进程：Empty-process"><a href="#5-1-5-空进程：Empty-process" class="headerlink" title="5.1.5 空进程：Empty process"></a>5.1.5 空进程：Empty process</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab27cee0b839?w=833&h=144&f=png&s=11686" srcset="/img/loading.gif" alt="空进程：Empty process"></p>
+<ul>
+<li>不含有任何的活动的组件。（ <code>Android</code> 设计的，处于缓存的目的，为了第二次启动更快，采取的一个权衡）</li>
+</ul>
+<h2 id="5-2-可见进程"><a href="#5-2-可见进程" class="headerlink" title="5.2 可见进程"></a>5.2 可见进程</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab28553037aa?w=1854&h=236&f=png&s=98227" srcset="/img/loading.gif" alt="可见进程"></p>
+<blockquote>
+<p>可见进程指部分程序界面能够被用户看见，却不在前台与用户交互的进程。例如，我们在一个界面上弹出一个对话框（该对话框是一个新的 <code>Activity</code> ），那么在对话框后面的原界面是可见的，但是并没有与用户进行交互，那么原界面就是可见进程。</p>
+</blockquote>
+<ul>
+<li>一个进程满足下面任何一个条件都被认为是可视的：</li>
+</ul>
+<ol>
+<li>寄宿着一个不是前台的活动，但是它对用户仍可见（它的 <code>onPause()</code> 方法已经被调用）。举例来说，这可能发生在，如果一个前台活动在一个对话框（其他进程的）运行之后仍然是可视的，比如输入法的弹出时。</li>
+<li>寄宿着一个服务，该服务绑定到一个可视的活动。</li>
+</ol>
+<ul>
+<li>一个可视进程被认为是及其重要的且不会被杀死，除非为了保持前台进程运行。</li>
+</ul>
+<h2 id="5-3-服务进程"><a href="#5-3-服务进程" class="headerlink" title="5.3 服务进程"></a>5.3 服务进程</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab285541faaa?w=675&h=227&f=png&s=25103" srcset="/img/loading.gif" alt="服务进程"></p>
+<ul>
+<li><p>服务进程是通过 <code>startService()</code> 方法启动的进程，但不属于前台进程和可见进程。例如，在后台播放音乐或者在后台下载就是服务进程。</p>
+</li>
+<li><p>系统保持它们运行，除非没有足够内存来保证所有的前台进程和可视进程。</p>
+</li>
+</ul>
+<h2 id="5-4-后台进程"><a href="#5-4-后台进程" class="headerlink" title="5.4 后台进程"></a>5.4 后台进程</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2855867adb?w=1418&h=237&f=png&s=55303" srcset="/img/loading.gif" alt="后台进程"></p>
+<ul>
+<li>后台进程是一个保持着一个当前对用户不可视的活动（已经调用 <code>Activity</code> 对象的 <code>onStop()</code> 方法）（如果还有除了 <code>UI</code> 线程外其他线程在运行话，不受影响）。</li>
+</ul>
+<blockquote>
+<p>例如我正在使用 <code>qq</code> 和别人聊天，这个时候 <code>qq</code> 是前台进程，但是当我点击 <code>Home</code> 键让 <code>qq</code> 界面消失的时候，这个时候它就转换成了后台进程。</p>
+</blockquote>
+<ul>
+<li>这些进程没有直接影响用户体验，并且可以在任何时候被杀以收回内存用于一个前台、可视、服务进程。</li>
+<li>一般地有很多后台进程运行着，因此它们保持在一个 <code>LRU</code>（ <code>least recently used</code> ，即最近最少使用，如果您学过操作系统的话会觉得它很熟悉，跟内存的页面置换算法 <code>LRU</code> 一样）列表以确保最近使用最多的活动的进程最后被杀。</li>
+</ul>
+<h2 id="5-5-空进程"><a href="#5-5-空进程" class="headerlink" title="5.5 空进程"></a>5.5 空进程</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2855c30501?w=978&h=230&f=png&s=34145" srcset="/img/loading.gif" alt="空进程"></p>
+<ul>
+<li><p>空进程是一个没有保持活跃的应用程序组件的进程，不包含任何活跃组件。</p>
+</li>
+<li><p>保持这个进程可用的唯一原因是作为一个 <code>cache</code> 以提高下次启动组件的速度。系统进程杀死这些进程，以在进程 <code>cache</code> 和潜在的内核 <code>cache</code> 之间平衡整个系统资源。</p>
+</li>
+<li><p><code>android</code> 进程的回收顺序从先到后分别是：空进程，后台进程，服务进程，可见进程，前台进程。</p>
+</li>
+</ul>
+<h2 id="5-6-什么是-ANR，如何避免"><a href="#5-6-什么是-ANR，如何避免" class="headerlink" title="5.6 什么是 ANR，如何避免"></a>5.6 什么是 ANR，如何避免</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab285772443a?w=1629&h=293&f=png&s=78165" srcset="/img/loading.gif" alt="什么是 ANR，如何避免"></p>
+<h4 id="5-6-1-什么是ANR"><a href="#5-6-1-什么是ANR" class="headerlink" title="5.6.1 什么是ANR"></a>5.6.1 什么是ANR</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2865765c07?w=1007&h=219&f=png&s=27032" srcset="/img/loading.gif" alt="什么是ANR"></p>
+<ul>
+<li><code>ANR</code> ，全称为 <code>Application Not Responding</code> 。</li>
+<li>在 <code>Android</code> 中，如果你的应用程序有一段时间没有响应，系统会向用户显示一个对话框，这个对话框称作应用程序无响应对话框。</li>
+</ul>
+<h4 id="5-6-2-用户行为"><a href="#5-6-2-用户行为" class="headerlink" title="5.6.2 用户行为"></a>5.6.2 用户行为</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab287022cf69?w=667&h=227&f=png&s=23177" srcset="/img/loading.gif" alt="用户行为"></p>
+<ul>
+<li>用户可以选择让程序继续运行，也可以让程序停止运行。</li>
+<li>他们在使用你的应用程序时，并不希望每次都要处理这个对话框。</li>
+<li>因此，在程序里对响应性能的设计很重要，这样，系统不会显示 <code>ANR</code> 给用户。</li>
+</ul>
+<h4 id="5-6-3-Android不同组件ANR超时时间不同"><a href="#5-6-3-Android不同组件ANR超时时间不同" class="headerlink" title="5.6.3 Android不同组件ANR超时时间不同"></a>5.6.3 Android不同组件ANR超时时间不同</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2878933ee5?w=647&h=229&f=png&s=17948" srcset="/img/loading.gif" alt="Android不同组件ANR超时时间不同"></p>
+<ul>
+<li>不同的组件发生 <code>ANR</code> 的时间不一样，主线程（ <code>Activity</code> 、<code>Service</code> ）是 <code>5</code> 秒，<code>BroadCastReceiver</code> 是 <code>10</code> 秒。</li>
+</ul>
+<h4 id="5-6-4-解决方案"><a href="#5-6-4-解决方案" class="headerlink" title="5.6.4 解决方案"></a>5.6.4 解决方案</h4><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab2875e5a963" srcset="/img/loading.gif" alt="解决方案"></p>
+<ol>
+<li>将所有耗时操作，比如访问网络，<code>Socket</code> 通信，查询大量 <code>SQL</code> 语句，复杂逻辑计算等都放在子线程中去，然后通过 <code>handler.sendMessage</code> 、<code>runonUITread</code> 、<code>AsyncTask</code> 等方式更新 <code>UI</code> ，以确保用户界面操作的流畅度。</li>
+<li>如果耗时操作需要让用户等待，那么可以在界面上显示进度条。</li>
+</ol>
+<h2 id="5-7-android的任务栈-Task"><a href="#5-7-android的任务栈-Task" class="headerlink" title="5.7 android的任务栈 Task"></a>5.7 android的任务栈 Task</h2><p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab287980fd1a?w=1067&h=179&f=png&s=22428" srcset="/img/loading.gif" alt="android的任务栈 Task"></p>
+<ul>
+<li>一个 <code>Task</code> 包含的就是 <code>activity</code> 集合，<code>android</code> 系统可以通过任务栈有序的管理 <code>activity</code> </li>
+<li>一个app当中可能不止一个任务栈，在某些情况下，一个 <code>activity</code> 也可以独享一个任务栈（ <code>singleInstance</code> 模式启动的 <code>activity</code> ）</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
+<ol>
+<li>本文基本涵盖了 <code>Android Activity</code> 的所有知识点。对于 <code>App</code> 启动、<code>AMS</code> 希望大家能根据文中链接或者 <code>Google</code> 搜索的形式继续展开学习。</li>
+<li><strong><code>重点</code></strong>：关于 <code>Android</code> 的四大组件，到现在为止我才总结完 Activity ，马上我将继续针对，<code>Service</code> ，<code>BroadcastRecevier</code> 等，以及事件分发、滑动冲突、新能优化等重要模块，进行全面总结，欢迎大家关注 <a href="https://juejin.im/user/5d00b2ee6fb9a07ef5622eed" target="_blank" rel="noopener">_yuanhao 的 掘金</a> ，方便及时接收更新</li>
+</ol>
+<h1 id="码字不易，你的点赞是我总结的最大动力！"><a href="#码字不易，你的点赞是我总结的最大动力！" class="headerlink" title="码字不易，你的点赞是我总结的最大动力！"></a>码字不易，你的点赞是我总结的最大动力！</h1><hr>
+<ul>
+<li><p>由于我在「稀土掘金」「简书」「<code>CSDN</code>」「博客园」等站点，都有新内容发布。所以大家可以直接关注我的 <code>GitHub</code> 仓库，以免错过精彩内容！</p>
+</li>
+<li><p>仓库地址：<br><a href="https://github.com/FishInWater-1999/android_interviews" target="_blank" rel="noopener">超级干货！精心归纳 <code>Android</code> 、<code>JVM</code> 、算法等，各位帅气的老铁支持一下！给个 Star ！</a></p>
+</li>
+<li><p>一万多字长文，加上精美思维导图，<strong>记得点赞哦</strong>，欢迎关注 <strong><a href="https://juejin.im/user/5d00b2ee6fb9a07ef5622eed" target="_blank" rel="noopener">_yuanhao 的 掘金</a></strong> ，我们下篇文章见！</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/30/16e1ab287ee35ce8?w=2000&h=1215&f=jpeg&s=190057" srcset="/img/loading.gif" alt="Android"></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/android">android</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6">四大组件</a>
+              
+                <a class="hover-with-bg" href="/tags/Activity">Activity</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'b490011b0888d5755e07',
+      clientSecret: '032d235d0a00fedfc15850e426ad915f2e9a7278',
+      repo: 'FishInWater-1999.github.io',
+      owner: 'FishInWater-1999',
+      admin: 'FishInWater-1999',
+      id: md5(location.pathname),
+      language: 'zh-CN',
+      perPage: '15',
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
+    
+  </div>
+</div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Activity 的 36 大难点，你会几个？「建议收藏」&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

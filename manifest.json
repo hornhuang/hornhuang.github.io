@@ -1,11 +1,11 @@
 {
-    "name": "hornhuang_github_io",
-    "short_name": "hornhuang_github_io",
+    "name": "黎明韭菜",
+    "short_name": "黎明韭菜",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "my website.",
+    "description": "my personal website.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -1,6 +1,7 @@
-<a href="https://segmentfault.com/u/webxejir">
-# hornhuang.github.io
+# hornhuang.github.io [【点击跳转】](https://hornhuang.github.io/#/)
 🚀This is my personal homepage, it my honor to show yours my interstind life, best wishes to your ~
+
+<a href="https://hornhuang.github.io/#/">
 <img src="https://github.com/hornhuang/hornhuang.github.io/blob/master/readme_res/images/indexpage.png" alt="首页展示 · 点击跳转">
 </a>
 

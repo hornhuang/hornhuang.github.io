@@ -56373,7 +56373,7 @@ Z.lC.prototype={
 au:function(){return new Z.JD(C.l)}}
 Z.JD.prototype={
 S:function(a,b){var s=null,r=E.akb(this.a.c)
-return D.arj(r.a,P.aw(["index",new R.rP(s),"/about_me",new Q.qj(s)],t.N,t.cl),new D.kR(s,"\u627e\u4e0d\u5230\u9875\u9762::"+r.z3(),s))}}
+return D.arj(r.a,P.aw(["index",new R.rP(s),"about_me",new Q.qj(s)],t.N,t.cl),new D.kR(s,"\u627e\u4e0d\u5230\u9875\u9762::"+r.z3(),s))}}
 F.a5q.prototype={
 $0:function(){$.Aw=new F.a5p()
 N.asb(new S.tt(null))},
@@ -56458,10 +56458,10 @@ kO:function(a,b){return V.a6x(b,50,new N.bt(null,t.A),!0)},
 VK:function(a,b){return new X.a3g(b,a)},
 mQ:function(a,b){return new X.a3h(b)},
 S:function(a,b){var s=this,r=null,q=P.aZ(56,0,0,0)
-return M.dG(C.aK,T.oc(H.a([U.a6U("assets/images/Index/favicon.png",C.et,32,32),new R.iA(r),s.kO(b,s.kn("flutter",s.mQ(b,"https://github.com/trending/dart?since=monthly"))),T.fo(r,0,32),s.kO(b,s.kn("iOS",s.mQ(b,"https://github.com/trending/swift?since=monthly"))),T.fo(r,0,32),s.kO(b,s.kn("android",s.mQ(b,"https://github.com/trending/kotlin?since=monthly"))),T.fo(r,0,32),s.kO(b,s.kn("\u65b0\u9c9c\u4e8b",s.mQ(b,"https://maimai.cn/article/headline"))),T.fo(r,0,32),s.kO(b,s.kn("GitHub",s.mQ(b,"https://github.com/hornhuang"))),T.fo(r,0,32),s.kO(b,s.kn("\u5173\u4e8e\u6211",s.VK(b,"/about_me")))],t.F),C.ag,r,C.aV,C.aE),C.t,q,r,r,r,50,r,r,new V.b7(16,0,32,0),r,r,r)}}
+return M.dG(C.aK,T.oc(H.a([U.a6U("assets/images/Index/favicon.png",C.et,32,32),new R.iA(r),s.kO(b,s.kn("flutter",s.mQ(b,"https://github.com/trending/dart?since=monthly"))),T.fo(r,0,32),s.kO(b,s.kn("iOS",s.mQ(b,"https://github.com/trending/swift?since=monthly"))),T.fo(r,0,32),s.kO(b,s.kn("android",s.mQ(b,"https://github.com/trending/kotlin?since=monthly"))),T.fo(r,0,32),s.kO(b,s.kn("\u65b0\u9c9c\u4e8b",s.mQ(b,"https://maimai.cn/article/headline"))),T.fo(r,0,32),s.kO(b,s.kn("GitHub",s.mQ(b,"https://github.com/hornhuang"))),T.fo(r,0,32),s.kO(b,s.kn("\u5173\u4e8e\u6211",s.VK(b,"about_me")))],t.F),C.ag,r,C.aV,C.aE),C.t,q,r,r,r,50,r,r,new V.b7(16,0,32,0),r,r,r)}}
 X.a3g.prototype={
 $0:function(){if(this.a.length===0)return
-K.Tn(this.b,!1).IR(new E.qu("/about_me",null,null).z3(),t.X)},
+K.Tn(this.b,!1).IR(new E.qu("about_me",null,null).z3(),t.X)},
 $S:0}
 X.a3h.prototype={
 $0:function(){var s=this.a

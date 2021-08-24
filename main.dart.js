@@ -56398,7 +56398,7 @@ au:function(){return new Q.Fu(C.l)}}
 Q.Fu.prototype={
 aL:function(){var s=document.createElement("iframe"),r=s.style
 r.border="none"
-s.src="assets/files/html/neitui.html"
+s.src="https://hornhuang.github.io/assets/assets/files/html/neitui.html"
 this.d=s
 $.qh().a2Y("webInWeb",new Q.a_3(this))
 this.bj()},

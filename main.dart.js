@@ -56371,7 +56371,7 @@ at:function(){return new Z.JD(C.l)}}
 Z.JD.prototype={
 S:function(a,b){var s=E.ak9(this.a.c)
 P.hG("sadsadad"+s.Jr())
-return D.arh(s.a,P.aw(["/",new R.np(null),"/about_me",new Q.ql(null)],t.N,t.cl),new R.np(null))}}
+return D.arh(s.a,P.aw(["/",new R.np(null),"about_me",new Q.ql(null)],t.N,t.cl),new R.np(null))}}
 F.a5q.prototype={
 $0:function(){$.Aw=new F.a5p()
 N.as9(new S.ts(null))},
@@ -56454,10 +56454,10 @@ kR:function(a,b){return V.a6x(b,50,new N.bt(null,t.A),!0)},
 VI:function(a,b){return new X.a3g(b,a)},
 mT:function(a,b){return new X.a3h(b)},
 S:function(a,b){var s=this,r=null,q=P.aZ(56,0,0,0)
-return M.dG(C.aK,T.oe(H.a([U.a6U("assets/images/Index/favicon.png",C.et,32,32),new R.iB(r),s.kR(b,s.kq("flutter",s.mT(b,"https://github.com/trending/dart?since=monthly"))),T.fo(r,0,32),s.kR(b,s.kq("iOS",s.mT(b,"https://github.com/trending/swift?since=monthly"))),T.fo(r,0,32),s.kR(b,s.kq("android",s.mT(b,"https://github.com/trending/kotlin?since=monthly"))),T.fo(r,0,32),s.kR(b,s.kq("\u65b0\u9c9c\u4e8b",s.mT(b,"https://maimai.cn/article/headline"))),T.fo(r,0,32),s.kR(b,s.kq("GitHub",s.mT(b,"https://github.com/hornhuang"))),T.fo(r,0,32),s.kR(b,s.kq("\u5173\u4e8e\u6211",s.VI(b,"/about_me")))],t.F),C.ag,r,C.aV,C.aE),C.t,q,r,r,r,50,r,r,new V.b7(16,0,32,0),r,r,r)}}
+return M.dG(C.aK,T.oe(H.a([U.a6U("assets/images/Index/favicon.png",C.et,32,32),new R.iB(r),s.kR(b,s.kq("flutter",s.mT(b,"https://github.com/trending/dart?since=monthly"))),T.fo(r,0,32),s.kR(b,s.kq("iOS",s.mT(b,"https://github.com/trending/swift?since=monthly"))),T.fo(r,0,32),s.kR(b,s.kq("android",s.mT(b,"https://github.com/trending/kotlin?since=monthly"))),T.fo(r,0,32),s.kR(b,s.kq("\u65b0\u9c9c\u4e8b",s.mT(b,"https://maimai.cn/article/headline"))),T.fo(r,0,32),s.kR(b,s.kq("GitHub",s.mT(b,"https://github.com/hornhuang"))),T.fo(r,0,32),s.kR(b,s.kq("\u5173\u4e8e\u6211",s.VI(b,"about_me")))],t.F),C.ag,r,C.aV,C.aE),C.t,q,r,r,r,50,r,r,new V.b7(16,0,32,0),r,r,r)}}
 X.a3g.prototype={
 $0:function(){if(this.a.length===0)return
-K.Tn(this.b,!1).IQ(new E.yA("/about_me",null,null).Jr(),t.X)},
+K.Tn(this.b,!1).IQ(new E.yA("about_me",null,null).Jr(),t.X)},
 $S:0}
 X.a3h.prototype={
 $0:function(){var s=this.a

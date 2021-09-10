@@ -28,6 +28,18 @@
 
   <title>hornhuang_github_io</title>
   <link rel="manifest" href="manifest.json">
+
+  <!--  百度：访问量统计 https://tongji.baidu.com/sc-web/10000392658/home/site/getjs?siteId=17203712-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?112f9a8fcea1e83bbf7484e28f797a8b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+   </script>
+
 </head>
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
@@ -36,7 +48,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=1079021915');
+        navigator.serviceWorker.register('flutter_service_worker.js?v=3381445915');
       });
     }
   </script>

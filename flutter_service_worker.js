@@ -4,26 +4,30 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "a578d61ec96d758075d61695ee6b2693",
-"index.html": "43c897fc380e5acacee7f215037c736c",
-"/": "43c897fc380e5acacee7f215037c736c",
-"main.dart.js": "8b1c2744e54c585e42bc94b1ef5efa6d",
+"index.html": "ac7b7f51c21391b8d842c58354c0f2dc",
+"/": "ac7b7f51c21391b8d842c58354c0f2dc",
+"main.dart.js": "7ab11be3d0fd1087cc0c4e5a71c8fbc5",
 "favicon.png": "000fed6a584939f9eb8de435df347ee7",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "5d86d12813a9b85adbaaa4a0c0ab22b6",
-"assets/AssetManifest.json": "bf4ec8e626e6e5ef4a9a76ce575a1ff5",
-"assets/NOTICES": "bcdce456cde7c149661f79cb7271a2be",
+"assets/AssetManifest.json": "09b74009d4c6da64ee692fbac3e73222",
+"assets/NOTICES": "429c84a22b645d604a283f20096fc2a8",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
+"assets/packages/fluttertoast/assets/toastify.js": "e7006a0a033d834ef9414d48db3be6fc",
+"assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/assets/images/Welfare/neitui_background.jpeg": "7a5f6deca2f340cfc502210f944c5f78",
+"assets/assets/images/Welfare/neitui_background.png": "d8667a42993eb44ae15b82891076c778",
 "assets/assets/images/QuickLink/wanandroid.png": "919ec9c8b2cc32f48c040ee06d3bde5a",
 "assets/assets/images/QuickLink/juejin.png": "0ac4391d1898ea53aeef0fd6483bf496",
 "assets/assets/images/QuickLink/csdn.png": "482e2dfb9c5f62d698c0799b3397744a",
 "assets/assets/images/QuickLink/jianshu.png": "ccfd32645aaa2ebd14ddb7b048b45c94",
 "assets/assets/images/Index/background.jpeg": "f3634910696fc96c3a74cfbbba777419",
 "assets/assets/images/Index/favicon.png": "000fed6a584939f9eb8de435df347ee7",
-"assets/assets/files/html/neitui.html": "93e28336c13901e8cf5b99434fc1ef86"
+"assets/assets/images/gif/loading.gif": "15657539044e11a19a1c6c7e3073d1b3",
+"assets/assets/images/gif/home.gif": "08eba1de6100c1f367c847c512ba0ad4",
+"assets/assets/files/html/neitui.html": "19275d621428d8678ec88c4585362d93"
 };
 
 // The application shell files that are downloaded before a service worker can

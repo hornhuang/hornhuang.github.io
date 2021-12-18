@@ -38248,9 +38248,8 @@ BA:function(a,b){var s=new H.cr(t.Gf),r=$.ahV
 if(r.length!==0){s.m(0,"X-Bmob-Application-Id",r)
 s.m(0,"X-Bmob-REST-API-Key",$.ahX)}else P.dV("\u8bf7\u5148\u8fdb\u884cSDK\u7684\u521d\u59cb\u5316\uff0c\u518d\u8fdb\u884c\u7f51\u7edc\u8bf7\u6c42\u3002")
 s.m(0,"Access-Control-Allow-Origin","*")
-s.m(0,"Vary","Origin")
 s.m(0,"Access-Control-Allow-Headers","*")
-s.m(0,"Access-Control-Allow-Methods","GET, POST, OPTIONS")
+s.m(0,"Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS")
 s.m(0,"Content-Type","application/json")
 return s}}
 T.o9.prototype={

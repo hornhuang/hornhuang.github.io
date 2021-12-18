@@ -38250,7 +38250,7 @@ s.m(0,"X-Bmob-REST-API-Key",$.ahX)}else P.dV("\u8bf7\u5148\u8fdb\u884cSDK\u7684\
 s.m(0,"Access-Control-Allow-Origin","*")
 s.m(0,"Access-Control-Allow-Credentials","true")
 s.m(0,"Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS")
-s.m(0,"Access-Control-Allow-Headers","Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Methods")
+s.m(0,"Access-Control-Allow-Headers","Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, access-control-allow-methods")
 s.m(0,"Content-Type","application/json")
 return s}}
 T.o9.prototype={
